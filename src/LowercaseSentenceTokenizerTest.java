@@ -23,6 +23,13 @@ class LowercaseSentenceTokenizerTest {
         Scanner scanner = new Scanner(input);
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
 
+        // Expected
+        List<String> expectedTokens = List.of("hello", "hi", "hi", "hi", "hello", "hello");
+
+        // Actual output from tokenizer
+        List<String> actualTokens = tokenizer.tokenize(scanner);
+
+
     }
     
 
