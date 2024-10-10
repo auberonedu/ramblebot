@@ -39,22 +39,23 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
       tokenizedSentence.add(scanner.next());
     }
 
-    System.out.println(tokenizedSentence);
+    //System.out.println(tokenizedSentence);
 
     return tokenizedSentence;
   }
 
   public static void main(String []args) {
-    Scanner input = new Scanner(System.in);
 
-    
-    List<String> newList = new ArrayList<>();
+    //Practice - create a scanner to read user input
+    Scanner input = new Scanner("here is a testing sentence");
+
+    //Calling tokenizer class and tying it to a new variable that instantiates a new instance of LowercaseSentenceTokenizer
     Tokenizer token = new LowercaseSentenceTokenizer();
 
-    newList.add("word");
+    //Calls the variable and uses the method from line 32 (tokenize) on the Scanner from line 50
+    List<String> tokenResult = token.tokenize(input);
 
-    token.tokenize(input);
-    System.out.println(token);
+    System.out.println(tokenResult);
   }
 }
 
