@@ -1,7 +1,5 @@
 # ramblebot
 
-*TESTING, TESTING*
-
 A project to exercise Java, JUnit, git, GitHub, and code-reading skills. Students will create a language model to generate text.
 
 ## Expectations
