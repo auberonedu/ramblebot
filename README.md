@@ -2,6 +2,8 @@
 
 A project to exercise Java, JUnit, git, GitHub, and code-reading skills. Students will create a language model to generate text.
 
+Here I am making a change, wish me luck on this project!
+
 ## Expectations
 
 ### Academic Honesty
