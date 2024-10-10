@@ -42,7 +42,7 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
       for (String word: words) {
         // checking if the word is empty
         if (!word.isEmpty()) {
-          tokens.add(word.toLowerCase()); // converting the word to lowercase and adding it to the tokens list
+          tokens.add(word); // adding the word to the tokens list
         }
       }
     }
