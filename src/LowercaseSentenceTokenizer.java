@@ -46,7 +46,7 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
         }
       }
     }
-    return null;
+    return tokens;
   }
 }
 
