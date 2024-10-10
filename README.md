@@ -104,3 +104,6 @@ Consider doing any of the following (some are very hard!):
 Submit your project by making a PR and copying the link to the canvas assignment.
 
 TURN SOMETHING IN BY THE DUE DATE EVEN IF YOU'RE NOT FINISHED.
+
+### Testing Push
+First Test Push: 10/10/2024 @ 1:51PM PST
