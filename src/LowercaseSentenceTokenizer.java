@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,7 +31,18 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
    */
   public List<String> tokenize(Scanner scanner) {
     // TODO: Implement this function to convert the scanner's input to a list of words and periods
-    return null;
+   
+    // Create a String List to store tokens
+    List<String> tokenList = new ArrayList<>();
+    
+    // while the scanner contains a next token
+    while (scanner.hasNext()) {
+            // add this token to List<String>
+            String word = scanner.next();
+            tokenList.add(word);
+    }
+
+    return tokenList;
   }
 }
 
