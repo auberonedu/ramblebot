@@ -25,7 +25,7 @@ YOU ARE EXPECTED TO MAKE SMALL, FREQUENT COMMITS. Doing so is good practice and 
 ### Timeline
 This is a large, difficult project. Start early, and get help when you need it.
 
-## Setup
+## Setup (Completed)
 
 1. Fork and clone this project. MAKE SURE TO CLONE FROM YOUR FORK. The clone URL should have your username in it.
 2. Change into the project directory:
