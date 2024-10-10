@@ -18,7 +18,9 @@ class LowercaseSentenceTokenizerTest {
     // Wave 2
     @Test
     void testTokenizeWithMultipleSpaces() {
-        
+        // string input with many spaces
+        String input = "hello   hi hi hi   hello hello";
+
     }
     
 
