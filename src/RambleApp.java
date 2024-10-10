@@ -157,8 +157,13 @@ public class RambleApp {
      */
     public static void main(String[] args) {
         // Create dependencies
+        
         Tokenizer tokenizer = new LowercaseSentenceTokenizer();
+        
+        ;
+
         UnigramWordPredictor predictor = new UnigramWordPredictor(tokenizer);
+
         Scanner inputScanner = new Scanner(System.in);
 
         RambleApp app = new RambleApp(tokenizer, predictor, inputScanner);
