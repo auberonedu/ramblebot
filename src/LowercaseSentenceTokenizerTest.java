@@ -20,6 +20,8 @@ class LowercaseSentenceTokenizerTest {
     void testTokenizeWithMultipleSpaces() {
         // string input with many spaces
         String input = "hello   hi hi hi   hello hello";
+        Scanner scanner = new Scanner(input);
+        LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
 
     }
     
