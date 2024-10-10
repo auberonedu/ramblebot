@@ -50,5 +50,10 @@ class LowercaseSentenceTokenizerTest {
 
         assertEquals(List.of("hello", "world", ".", "this", "is", "dr.smith's", "example", "."), tokens);
     }
+
+    @Test
+    void testTokenize() {
+        
+    }
     
 }
