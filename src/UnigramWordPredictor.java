@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * A class for predicting the next word in a sequence using a unigram model.
@@ -52,7 +53,6 @@ public class UnigramWordPredictor implements WordPredictor {
   public void train(Scanner scanner) {
     List<String> trainingWords = tokenizer.tokenize(scanner);
 
-    // TODO: Convert the trainingWords into neighborMap here]
     Map<String, List<String>> neighborMap = new HashMap<>();
     for (int i =0; i < trainingWords.size() -1; i++){
       String word = trainingWords.get(i);
@@ -114,7 +114,14 @@ public class UnigramWordPredictor implements WordPredictor {
   public String predictNextWord(List<String> context) {
     // TODO: Return a predicted word given the words preceding it
     // Hint: only the last word in context should be looked at
-    return null;
+    
+    String contextString = context.get(context.size()-1);
+    if(!neighborMap.containsKey(contextString)){
+      return null;
+    }
+    List<String> currentList = neighborMap.get(contextString);
+
+    return currentList.get(new Random().nextInt(currentList.size()));
   }
   
   /**
