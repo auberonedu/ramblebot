@@ -19,6 +19,15 @@ class LowercaseSentenceTokenizerTest {
     /*
      * Write your test here!
      */
+
+     @Test 
+     void testTokenizeWithManySpaces() {
+        LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
+        Scanner scanner = new Scanner("this    is      a   sentence      with    many         spaces    between     the     words");
+        List<String> tokens = tokenizer.tokenize(scanner);
+        
+        assertEquals(List.of("this", "is", "a", "sentence", "with", "many", "spaces", "between", "the", "words"), tokens);
+     }
     
 
     // Wave 3
