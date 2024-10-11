@@ -120,6 +120,16 @@ public class UnigramWordPredictor implements WordPredictor {
       return null;
     }
 
+    // getting the last word from context
+    String lastWord = context.get(context.size() - 1);
+
+    // retrieving next possible words from neighborMap
+    List<String> possibleNextWords = neighborMap.get(lastWord);
+
+    // if there are no next words available
+    if (possibleNextWords == null || possibleNextWords.isEmpty()) {
+      return null;
+    }
 
     return null;
   }
