@@ -56,12 +56,12 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
                   cleanedWord+= c; // adding valid characters to the word
               }
           }
-          // seperate the word if it ends with a period
+          // seperating the word if it ends with a period
           if (cleanedWord.endsWith(".")) {
             tokens.add(cleanedWord.substring(0, cleanedWord.length() - 1)); // adding the word without the period
-            tokens.add("."); // add period as seperate token
+            tokens.add("."); // adding period as a seperate token
           } else {
-            // add if not empty
+            // if not empty
             if (!cleanedWord.isEmpty()) 
             tokens.add(cleanedWord); // adding the cleaned word
           } 
