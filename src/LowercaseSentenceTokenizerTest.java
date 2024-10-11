@@ -15,10 +15,9 @@ class LowercaseSentenceTokenizerTest {
         assertEquals(List.of("this", "is", "a", "lowercase", "sentence", "without", "a", "period"), tokens);
     }
 
-    // Wave 2
+    // Wave 2 - DONE
     @Test
     void testTokenizeWithMultipleSpaces() {
-        // string input with many spaces
         String input = "hello   hi hi hi   hello hello";
         Scanner scanner = new Scanner(input);
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
@@ -29,10 +28,10 @@ class LowercaseSentenceTokenizerTest {
         // Actual output from tokenizer
         List<String> actualTokens = tokenizer.tokenize(scanner);
 
-
+        // Comparing the expected and actual outputs to make sure they match
+        assertEquals(expectedTokens, actualTokens);
     }
     
-
     // Wave 3
     @Test
     void testTokenizeWithCapitalization() {
