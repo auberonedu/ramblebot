@@ -54,7 +54,8 @@ public class UnigramWordPredictor implements WordPredictor {
     // TODO: Convert the trainingWords into neighborMap here
     // looping through tokens list to build the neighborMap
     for (int i = 0; i < trainingWords.size() - 1; i++) {
-      
+      String currentWord = trainingWords.get(i); // getting the current word from the list
+      String nextWord = trainingWords.get(i + 1); // getting the next word in the list
     }
   }
 
