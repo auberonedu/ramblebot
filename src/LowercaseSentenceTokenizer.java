@@ -46,6 +46,10 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
 
           // checking if a word is a period itself
           if (lowerCaseWord.equals(".")) {
+              tokens.add(lowerCaseWord); // adding a period as a seperate token 
+          } else {
+            // empty string
+            String cleanedWord = "";
             
           }
 
