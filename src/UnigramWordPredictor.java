@@ -20,6 +20,7 @@ public class UnigramWordPredictor implements WordPredictor {
    */
   public UnigramWordPredictor(Tokenizer tokenizer) {
     this.tokenizer = tokenizer;
+    this.neighborMap = new HashMap<>();
   }
 
   /**
@@ -75,8 +76,6 @@ public class UnigramWordPredictor implements WordPredictor {
         neighborMap.put(word, nextList);
       }
     }
-
-
   }
 
   /**
