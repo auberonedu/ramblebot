@@ -38,6 +38,8 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     while(scanner.hasNext()){
       //read next token and assign to variable word
       String word = scanner.next();
+      //convert all input to lowercase
+      word.toLowerCase();
       //add each token to wordList ArrayList
       wordList.add(word);
     }

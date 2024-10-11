@@ -10,15 +10,28 @@ class LowercaseSentenceTokenizerTest {
     void testTokenizeWithNoCapitalizationOrPeriod() {
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
         Scanner scanner = new Scanner("this is a lowercase sentence without a period");
+        Scanner scanner2 = new Scanner("this is a test for my method");
         List<String> tokens = tokenizer.tokenize(scanner);
+        List<String> tokens2 = tokenizer.tokenize(scanner2);
 
         assertEquals(List.of("this", "is", "a", "lowercase", "sentence", "without", "a", "period"), tokens);
+        //Additional Test to make sure method is working properly
+        assertEquals(List.of("this", "is", "a", "test", "for", "my", "method"), tokens2);
     }
 
     // Wave 2
-    /*
-     * Write your test here!
-     */
+    @Test
+    void  testToeknizeWithSpaces(){
+        LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
+        Scanner scanner = new Scanner("this is a lowercase sentence with         spaces");
+        Scanner scanner2 = new Scanner("this is   a    test    for    my    method");   
+        
+        List<String> tokens = tokenizer.tokenize(scanner);
+        List<String> tokens2 = tokenizer.tokenize(scanner2);
+
+        assertEquals(List.of("this", "is", "a", "lowercase", "sentence", "with", "spaces"), tokens);
+        assertEquals(List.of("this", "is", "a", "test", "for", "my", "method"), tokens2);
+    }
     
 
     // Wave 3
