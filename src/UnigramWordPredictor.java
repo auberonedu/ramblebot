@@ -55,7 +55,7 @@ public class UnigramWordPredictor implements WordPredictor {
     // DONE: Convert the trainingWords into neighborMap here
 
     // initializing the neighborMap
-    neighborMap = new HashMap<>();
+    neighborMap = new HashMap<>(); 
 
     // looping through tokens list to build the neighborMap
     for (int i = 0; i < trainingWords.size() - 1; i++) {
