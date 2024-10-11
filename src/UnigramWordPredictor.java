@@ -115,7 +115,7 @@ public class UnigramWordPredictor implements WordPredictor {
    * @return the predicted next word, or null if no prediction can be made
    */
   public String predictNextWord(List<String> context) {
-    // TODO: Return a predicted word given the words preceding it
+    // DONE: Return a predicted word given the words preceding it
     // Hint: only the last word in context should be looked at
     if (context == null || context.isEmpty()) { // check if null or empty
       return null;
