@@ -50,13 +50,21 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
           } else {
             // empty string
             String cleanedWord = "";
-            
+            // iterating through each character
+            for (char c : lowerCaseWord.toCharArray()) {
+              if (Character.isLetter(c) || c == '.' || c == '\'')  {
+                  cleanedWord+= c; // adding valid characters to the word
+              }
           }
-
+          // add if not empty
+          if (!cleanedWord.isEmpty()) {
+            tokens.add(cleanedWord);
+          }
         }
       }
     }
-    return tokens;
   }
+    return tokens;
+ } 
 }
 
