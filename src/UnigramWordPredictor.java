@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -131,8 +132,10 @@ public class UnigramWordPredictor implements WordPredictor {
       return null;
     }
 
-    return null;
-  }
+    // selecting a random next word from possible options 
+    Random random = new Random();
+    return possibleNextWords.get(random.nextInt(possibleNextWords.size())); // return a randomly selected word from possibleNextWords
+  } 
   
   /**
    * Returns a copy of the neighbor map. The neighbor map is a mapping 
