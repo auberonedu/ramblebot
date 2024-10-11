@@ -42,7 +42,13 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
       for (String word: words) {
         // checking if the word is empty
         if (!word.isEmpty()) {
-          tokens.add(word); // adding the word to the tokens list
+          String lowerCaseWord = word.toLowerCase(); // converting to lowercase
+
+          // checking if a word is a period itself
+          if (lowerCaseWord.equals(".")) {
+            
+          }
+
         }
       }
     }
