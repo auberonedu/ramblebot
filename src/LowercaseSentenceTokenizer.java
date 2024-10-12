@@ -42,32 +42,19 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
         } else{
           String[] tokens = token.split("\\.",2);
           if(tokens.length>1){
-              list.add(tokens[0]);
-            list.add(tokens[1]);
+            list.add(tokens[0]);
+            list.add(".");
+          }else{
+            list.add(tokens[0]);
           }
         
         }
-        /* 
-        Scanner s = new Scanner(token);
-        for(int i = 0; i< token.length(); i++){
-          char ch = s.next().charAt(i);
-          String sample = String.valueOf(ch);
-          if(sample == "."){
-
-          }
-        }*/
+       
+      } else{
+        list.add(token);
       }
-      list.add(token);
     }
     return list;
-  }
-  public static void main(String[] args) {
-    LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
-    Scanner s = new Scanner("Trying something. New.");
-    List<String> tokens = tokenizer.tokenize(s);
-    for(String a: tokens){
-      System.out.println(a);
-    }
   }
 }
 
