@@ -57,13 +57,26 @@ public class UnigramWordPredictor implements WordPredictor {
     Map<String, List<String>> neighborMap = new HashMap<>();
 
     // TODO: Convert the trainingWords into neighborMap here
-    //for-loop to loop through each token.
-      for (int i = 0; i < trainingWords.size() -1; i++) {
+    //for-loop to loop through each token. does not go to final index since it
+    //will throw an IndexOutOfBoundsExceptions
+      for (int i = 0; i < trainingWords.size() - 1; i++) {
         //obtain the string at index i and convert to lowercase
         String currentString = trainingWords.get(i).toLowerCase();
         //obtain the next string after index i and convert to lowercase
         String nextString = trainingWords.get(i+1).toLowerCase();
+
+        //if currentString is not found within neighborMap
+        //puts currentString as key and creates a new list
+        if (!neighborMap.containsKey(currentString)) {
+          neighborMap.put(currentString, new ArrayList<>());
+        }
+        // add nextString to the collection of neighbors for currentString
+        neighborMap.get(currentString).add(nextString);
       }
+      //Allow neighborMap to be used throughout the class
+      //and not just within the train method
+      //or will throw NullPointerException
+      this.neighborMap = neighborMap;
     }
         
 

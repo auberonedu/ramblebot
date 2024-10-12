@@ -59,9 +59,13 @@ class LowercaseSentenceTokenizerTest {
     void testTokenizeWithInternalPeriod() {
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
         Scanner scanner = new Scanner("Hello world. This is Dr.Smith's example.");
-        List<String> tokens = tokenizer.tokenize(scanner);
+        Scanner scanner2 = new Scanner("Th.is is another. te..st");
 
+        List<String> tokens = tokenizer.tokenize(scanner);
+        List<String> tokens2 = tokenizer.tokenize(scanner2);
+ 
         assertEquals(List.of("hello", "world", ".", "this", "is", "dr.smith's", "example", "."), tokens);
+        assertEquals(List.of("th.is", "is", "another", ".", "te..st"), tokens2);
     }
     
 }
