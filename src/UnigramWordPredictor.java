@@ -48,11 +48,26 @@ public class UnigramWordPredictor implements WordPredictor {
    * 
    * @param scanner the Scanner to read the training text from
    */
+
   public void train(Scanner scanner) {
+
+    //List of words containing input from scanner
     List<String> trainingWords = tokenizer.tokenize(scanner);
+    //Create empty hashmap with String as keys and a list of strings as value 
+    Map<String, List<String>> neighborMap = new HashMap<>();
 
     // TODO: Convert the trainingWords into neighborMap here
-  }
+    //for-loop to loop through each token.
+      for (int i = 0; i < trainingWords.size() -1; i++) {
+        //obtain the string at index i and convert to lowercase
+        String currentString = trainingWords.get(i).toLowerCase();
+        //obtain the next string after index i and convert to lowercase
+        String nextString = trainingWords.get(i+1).toLowerCase();
+      }
+    }
+        
+
+  
 
   /**
    * Predicts the next word based on the given context.
@@ -122,4 +137,5 @@ public class UnigramWordPredictor implements WordPredictor {
 
     return copy;
   }
+  
 }
