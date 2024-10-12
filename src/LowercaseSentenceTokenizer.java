@@ -36,14 +36,16 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
       String token = scanner.next().toLowerCase();
 
       if(token.contains(".")){
-        int indexOfAfterPeriod = token.indexOf("//.") +1;
-        if(token.charAt(indexOfAfterPeriod) != ' '){
+        int indexAfterPeriod = token.indexOf(".") +1;
+        if(indexAfterPeriod < token.length() && token.charAt(indexAfterPeriod) != ' '){
           list.add(token);
-        } 
-        else{
-          String[] tokens = token.split("//.");
-          list.add(tokens[0]);
-          list.add(tokens[1]);
+        } else{
+          String[] tokens = token.split("\\.",2);
+          if(tokens.length>1){
+              list.add(tokens[0]);
+            list.add(tokens[1]);
+          }
+        
         }
         /* 
         Scanner s = new Scanner(token);
