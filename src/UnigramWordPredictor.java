@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
-
 
 /**
  * A class for predicting the next word in a sequence using a unigram model.
@@ -133,21 +133,33 @@ public class UnigramWordPredictor implements WordPredictor {
   public String predictNextWord(List<String> context) {
     // TODO: Return a predicted word given the words preceding it
 
+    // As stated in the hint, only the last word in context should be evaluated.
     String lastWord = context.get(context.size() - 1);
-    //Create empty list for scope purposes
+    // Create empty list for scope purposes
     List<String> nextPredictedWords = null;
 
-    //check if neighbormap contains last word in the context
+    // check if neighbormap contains lastWord derived from the context
     if (neighborMap.containsKey(lastWord)) {
-      
-      //if lastWord is found, retrieve list of words that can follow the 
-      //last word in the context
+
+      // if lastWord found is true, retrieve list of words that can follow the
+      // last word in the context
       nextPredictedWords = neighborMap.get(lastWord);
     }
-
-
+    // create instance of random for generating a random output from
+    // nextPredictedWords List
+    Random random = new Random();
     // Hint: only the last word in context should be looked at
-    return null;
+
+    // Used this link to support with the syntaxing of using the random class
+    // https://www.geeksforgeeks.org/generating-random-numbers-in-java/
+
+    // Using the Random class, it will use the size of the nextPredictedWords,
+    // and select a random integer value within the indices of nextPredictedWords.
+    // If the list is ["cat", "cat", "dog"], cat will still have a 2/3 chance
+    // to be selected since cat is given an index twice. In this case, it is 0 =
+    // cat, 1 = cat,
+    // and 2 = dog.
+    return nextPredictedWords.get(random.nextInt(nextPredictedWords.size()));
   }
 
   /**
