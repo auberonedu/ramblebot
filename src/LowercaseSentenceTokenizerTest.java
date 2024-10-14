@@ -16,9 +16,7 @@ class LowercaseSentenceTokenizerTest {
     }
 
     // Wave 2
-    /*
-     * Write your test here!
-     */
+
     @Test
     void testTokenizeWithExtraSpaces() {
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();

@@ -36,7 +36,7 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
 
     while (scanner.hasNext()) 
     {
-      tokenizedSentence.add(scanner.next());
+      tokenizedSentence.add(scanner.next().toLowerCase());
     }
 
     //System.out.println(tokenizedSentence);
@@ -47,7 +47,8 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
   public static void main(String []args) {
 
     //Practice - create a scanner to read user input
-    Scanner input = new Scanner("here is a testing sentence");
+    //Updated for Wave 3 - Added strange capitalization
+    Scanner input = new Scanner("here is a TESTING seNTenCE wiTH sTrAnGe CAPITALization");
 
     //Calling tokenizer class and tying it to a new variable that instantiates a new instance of LowercaseSentenceTokenizer
     Tokenizer token = new LowercaseSentenceTokenizer();
