@@ -22,6 +22,7 @@ class LowercaseSentenceTokenizerTest {
         Scanner scanner = new Scanner("hello     hi hi hi    hello hello");
         List<String> tokens = tokenizer.tokenize(scanner);
 
+        // assertEquals(List.of("hello", "XXXXXXX", "XX"), tokens);
         assertEquals(List.of("hello", "hi", "hi", "hi", "hello", "hello"), tokens);
     }
 
