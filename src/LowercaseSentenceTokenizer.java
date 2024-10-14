@@ -32,6 +32,8 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
   public List<String> tokenize(Scanner scanner) {
     // TODO: Implement this function to convert the scanner's input to a list of words and periods
 
+    scanner.useDelimiter("[\s.]");
+
     List<String> tokenizedSentence = new ArrayList<>();
 
     while (scanner.hasNext()) 
@@ -48,7 +50,7 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
 
     //Practice - create a scanner to read user input
     //Updated for Wave 3 - Added strange capitalization
-    Scanner input = new Scanner("here is a TESTING seNTenCE wiTH sTrAnGe CAPITALization");
+    Scanner input = new Scanner("here is a TESTING seNTenCE wiTH sTrAnGe. CAPITALization");
 
     //Calling tokenizer class and tying it to a new variable that instantiates a new instance of LowercaseSentenceTokenizer
     Tokenizer token = new LowercaseSentenceTokenizer();
