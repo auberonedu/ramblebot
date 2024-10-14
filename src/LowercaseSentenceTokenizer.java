@@ -33,10 +33,10 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     // Completed: TODO: Implement this function to convert the scanner's input to a list of words and periods
 
     List<String> words = new ArrayList<>();
-    // scanner.useDelimiter("\\|"); // Research more about using delimeters and the pattern they use
+    // scanner.useDelimiter("\\s|,"); //Research more about using delimeter
 
     while (scanner.hasNextLine()) {
-      String word = scanner.next();
+      String word = scanner.next().toLowerCase();
       words.add(word);
     }
     return words;
