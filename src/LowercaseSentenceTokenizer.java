@@ -42,6 +42,8 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
           tokens.add(word.substring(0, word.length()-1));
         }
         tokens.add(".");
+      } else {
+        tokens.add(word);
       }
     }
 
