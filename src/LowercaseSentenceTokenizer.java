@@ -37,7 +37,6 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
       tokens.add(scanner.next().toLowerCase());
     }
     
-
     return tokens;
   }
 }
