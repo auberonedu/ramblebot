@@ -37,8 +37,15 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     while (scanner.hasNext()) {
       tokens.add(scanner.next().toLowerCase());
     }
-    
-    //Returns the arrray of tokens
+
+    for (String periodString : tokens) {
+      if (periodString.substring(periodString.length() - 1).equals(".")) {
+        
+      }
+      
+    }
+
+    //Returns the array of tokens
     return tokens;
   }
 }
