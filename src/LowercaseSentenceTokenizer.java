@@ -39,7 +39,7 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
       String word = scanner.next();
 
       if (word.endsWith(".")) {
-        tokens.add(word.toLowerCase());
+        tokens.add(word.substring(0, word.length() - 1).toLowerCase());
         tokens.add(".");
       } else {
         tokens.add(word.toLowerCase());
