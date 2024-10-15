@@ -12,7 +12,7 @@ public class SimpleTokenizer implements Tokenizer {
             String token = scanner.next().toLowerCase();
 
             //Checks if token is a word or a period
-            if (token.matches("[a-z]+") || token.equals(".")) {
+            if (token.matches("[a-z]+") || token.matches(token +".")) {
                 tokens.add(token);
             }
         }
