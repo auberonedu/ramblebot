@@ -20,6 +20,7 @@ public class UnigramWordPredictor implements WordPredictor {
    */
   public UnigramWordPredictor(Tokenizer tokenizer) {
     this.tokenizer = tokenizer;
+    this.neighborMap = new HashMap<>();
   }
 
   /**
@@ -48,11 +49,21 @@ public class UnigramWordPredictor implements WordPredictor {
    * 
    * @param scanner the Scanner to read the training text from
    */
+  @Override
   public void train(Scanner scanner) {
     List<String> trainingWords = tokenizer.tokenize(scanner);
+    for (int i = 0; i < tokens.size() - 1; i++) {
+      String currentWord = tokens.get(i);
+      String nextWord = tokens.get(i + 1);
+      neighborMap.computeIfAbsent(currentWord, k -> new ArrayList<>()).add(nextWord);
+    }
+  }
+
+  public Map<String, List<String>> getNeighborMap() {
+    return new HashMap<>(neighborMap);
+  }
 
     // TODO: Convert the trainingWords into neighborMap here
-  }
 
   /**
    * Predicts the next word based on the given context.
