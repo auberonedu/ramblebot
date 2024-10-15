@@ -51,10 +51,10 @@ public class UnigramWordPredictor implements WordPredictor {
    */
   @Override
   public void train(Scanner scanner) {
-    List<String> trainingWords = tokenizer.tokenize(scanner);
-    for (int i = 0; i < tokens.size() - 1; i++) {
-      String currentWord = tokens.get(i);
-      String nextWord = tokens.get(i + 1);
+    List<String> trainingWords = tokenizer.tokenize(scanner); // Correct variable name used
+    for (int i = 0; i < trainingWords.size() - 1; i++) { // Fixing reference to trainingWords
+      String currentWord = trainingWords.get(i);
+      String nextWord = trainingWords.get(i + 1);
       neighborMap.computeIfAbsent(currentWord, k -> new ArrayList<>()).add(nextWord);
     }
   }
