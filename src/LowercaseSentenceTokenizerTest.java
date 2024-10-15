@@ -44,6 +44,7 @@ class LowercaseSentenceTokenizerTest {
         List<String> tokens = tokenizer.tokenize(scanner);
 
         assertEquals(List.of("hello", "world", ".", "this", "is", "an", "example", "."), tokens);
+
     }
 
     // Wave 3
