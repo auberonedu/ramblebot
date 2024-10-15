@@ -42,25 +42,23 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
 
     while (scanner.hasNext()) {
 
-
       String token = scanner.next();
 
-      if (token.contains(".")) 
+      if (token.endsWith(".")) 
       {
         String[] splitToken = token.split("\\.");
 
-        for (String word : splitToken)
+        for (String word : splitToken) 
         {
           tokenizedSentence.add(word.toLowerCase());
           tokenizedSentence.add(".");
         }
-      }
-      else
+      } 
+      else 
       {
         tokenizedSentence.add(token.toLowerCase());
       }
 
-      
     }
 
     return tokenizedSentence;
@@ -70,7 +68,7 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
 
     // Practice - create a scanner to read user input
     // Updated for Wave 3 - Added strange capitalization
-    Scanner input = new Scanner("here is a TESTING seNTenCE wiTH sTrAnGe. CAPITALization.");
+    Scanner input = new Scanner("here is a TES.TING seNTenCE wiTH sTrAnGe. CAPITALization.");
 
     // Calling tokenizer class and tying it to a new variable that instantiates a
     // new instance of LowercaseSentenceTokenizer
