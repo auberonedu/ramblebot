@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Random;
 
 /**
  * A class for predicting the next word in a sequence using a unigram model.
@@ -20,6 +21,8 @@ public class UnigramWordPredictor implements WordPredictor {
    */
   public UnigramWordPredictor(Tokenizer tokenizer) {
     this.tokenizer = tokenizer;
+    // instantiate neighborMap in constructor
+    this.neighborMap = new HashMap<>();
   }
 
   /**
@@ -51,7 +54,30 @@ public class UnigramWordPredictor implements WordPredictor {
   public void train(Scanner scanner) {
     List<String> trainingWords = tokenizer.tokenize(scanner);
 
-    // TODO: Convert the trainingWords into neighborMap here
+    // iterate through trainingWords list (minus 1, because there is nothing to learn from last word)
+    for (int i = 0; i < trainingWords.size() - 1; i++) {
+
+      // store word at index, and next word
+      String word = trainingWords.get(i);
+      String nextWord = trainingWords.get(i+1);
+
+      // IF current word is NOT in neighborMap, create a List<String> "nextList" with containing the next value, then add (word, next) to neighborMap
+      if (!neighborMap.containsKey(word)) {
+
+        // create a list containing the next word
+        List<String> nextList = new ArrayList<String>();
+        nextList.add(nextWord);
+        
+        // add word and list to neigborMap
+        neighborMap.put(word, nextList);
+      } else {
+        // IF current word IS in neighborMap, get List<String> nextList value at word, add next word to nextList
+        List<String> nextList = neighborMap.get(word);
+        nextList.add(nextWord);
+        
+        neighborMap.put(word, nextList);
+      }
+    }
   }
 
   /**
@@ -101,7 +127,24 @@ public class UnigramWordPredictor implements WordPredictor {
   public String predictNextWord(List<String> context) {
     // TODO: Return a predicted word given the words preceding it
     // Hint: only the last word in context should be looked at
-    return null;
+
+    // index of last word
+    int index = context.size()-1;
+
+    // identify the last word in the current contest
+    String word = context.get(index);
+
+    // return the List<String> containing all the possible next words
+    List<String> possibleNexts = neighborMap.get(word);
+
+    // randomly choose a word from the list
+    Random choose = new Random();
+    int numberOfPossibilities = possibleNexts.size();
+    int randomIndex = choose.nextInt(numberOfPossibilities);
+    String nextWord = possibleNexts.get(randomIndex);
+
+    // return a random word
+    return nextWord;
   }
   
   /**

@@ -59,6 +59,8 @@ Sometimes this button takes a little bit to show up when you first open VS Code.
 11. You should expect to see all the tests fail. This is good! You haven't written your solution yet, so it's expected for them to fail.
 12. Validate that you can push to your repo by making any change to this README, adding, committing, and pushing it.
 
+**Rebecca Riffle was here!**
+
 ## Understanding the Project
 
 The goal of this project is to make a bot that can generate new text in the style of some writer. It will do this by reading some input writing, and then word-by-word generating new text that mimics it.
@@ -86,7 +88,7 @@ Write your test in `LowercaseSentenceTokenizerTest` where indicated by the comme
 In wave 3, you will finish the implementation of `tokenize`. Read the Javadoc carefully to understand what to do. Successfully completing this wave should make the remaining tests in `LowercaseSentenceTokenizerTest` pass. Add, commit, and push your code!
 
 ## Wave 4
-In wave 4 you will finish the implementation of `train` in `UnigramWordPredictor`. There is already one line of the implementation provided for you, you do not need to change it. Write the rest of te implementation below it. Read the Javadoc on `train` carefully to understand what is expected. I also recommend reading `testTrainAndGetNeighborMap` in `UnigramWordPredictorTest` as it gives an example input/output. Successfully completing your code should make that test pass. This method is probably the hardest part of the project. Look back at compound data structures and ask for help from tutors or in office hours if needed. Make sure to add, commit, and push your code frequently!
+In wave 4 you will finish the implementation of `train` in `UnigramWordPredictor`. There is already one line of the implementation provided for you, you do not need to change it. Write the rest of the implementation below it. Read the Javadoc on `train` carefully to understand what is expected. I also recommend reading `testTrainAndGetNeighborMap` in `UnigramWordPredictorTest` as it gives an example input/output. Successfully completing your code should make that test pass. This method is probably the hardest part of the project. Look back at compound data structures and ask for help from tutors or in office hours if needed. Make sure to add, commit, and push your code frequently!
 
 ## Wave 5
 In wave 5 you will implement `predictNextWord` in `UnigramWordPredictor`. As part of implementing this, you will need to research how to generate random numbers in Java. Read the Javadoc carefully, and read the comments on the remaining tests. Once you complete this wave, all tests in the project should pass. Congratulations, you finished the project! Make sure to add, commit, and push. 
