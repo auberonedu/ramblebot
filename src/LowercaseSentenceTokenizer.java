@@ -35,7 +35,7 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
 
     while (scanner.hasNextLine()) {
       //Reads the next line of text and adds to the stringInput object
-      stringInput.append(scanner.nextLine()).append(" ");
+      stringInput.append(scanner.nextLine());
     }
 
     String stringLower = stringInput.toString().toLowerCase();
