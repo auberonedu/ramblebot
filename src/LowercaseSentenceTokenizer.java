@@ -35,9 +35,13 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
 
     while (scanner.hasNextLine()) {
       //Reads the next line of text and adds to the stringInput object
-      stringInput.append(scanner.nextLine());
-      
+      stringInput.append(scanner.nextLine()).append(" ");
     }
+
+    String stringLower = stringInput.toString().toLowerCase();
+
+    //Split by space and newlines
+    String[] splitString = stringLower.split("\\s+")
 
     for (String word : tokens) {
       if (word.endsWith(".")) {
