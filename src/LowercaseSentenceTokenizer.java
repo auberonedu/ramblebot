@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,8 +30,46 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
    * @return a list of tokens, where each token is a word or a period
    */
   public List<String> tokenize(Scanner scanner) {
-    // TODO: Implement this function to convert the scanner's input to a list of words and periods
-    return null;
+    // DONE: Implement this function to convert the scanner's input to a list of words and periods
+    List <String> tokens = new ArrayList<>(); // creating an Arraylist
+
+    // reading the input until there's no text left to read from the Scanner
+    while (scanner.hasNextLine()) {
+      String line = scanner.nextLine(); // saving the read input line in the variable
+      String words[] = line.split(" "); // adding spaces
+
+      // looping through an array "words", and populating each word into the "tokens" ArrayList
+      for (String word: words) {
+        // checking if the word is empty
+        if (!word.isEmpty()) {
+          String lowerCaseWord = word.toLowerCase(); // converting to lowercase
+
+          // checking if a word is a period itself
+          if (lowerCaseWord.equals(".")) {
+              tokens.add(lowerCaseWord); // adding a period as a seperate token 
+          } else {
+            // empty string
+            String cleanedWord = "";
+            // iterating through each character
+            for (char c : lowerCaseWord.toCharArray()) {
+              if (Character.isLetter(c) || c == '.' || c == '\'')  {
+                  cleanedWord+= c; // adding valid characters to the word
+              }
+          }
+          // seperating the word if it ends with a period
+          if (cleanedWord.endsWith(".")) {
+            tokens.add(cleanedWord.substring(0, cleanedWord.length() - 1)); // adding the word without the period
+            tokens.add("."); // adding period as a seperate token
+          } else {
+            // if not empty
+            if (!cleanedWord.isEmpty()) 
+            tokens.add(cleanedWord); // adding the cleaned word
+          } 
+        }
+      }
+    }
   }
+    return tokens;
+ } 
 }
 

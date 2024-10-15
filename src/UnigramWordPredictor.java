@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -51,7 +52,22 @@ public class UnigramWordPredictor implements WordPredictor {
   public void train(Scanner scanner) {
     List<String> trainingWords = tokenizer.tokenize(scanner);
 
-    // TODO: Convert the trainingWords into neighborMap here
+    // DONE: Convert the trainingWords into neighborMap here
+
+    // initializing the neighborMap
+    neighborMap = new HashMap<>(); 
+
+    // looping through tokens list to build the neighborMap
+    for (int i = 0; i < trainingWords.size() - 1; i++) {
+      String currentWord = trainingWords.get(i); // getting the current word from the list
+      String nextWord = trainingWords.get(i + 1); // getting the next word in the list
+
+      // initializing the list if the currentWord is not already there
+      neighborMap.putIfAbsent(currentWord, new ArrayList<>());
+
+      // adding nextWord to the list that follow currentWord
+      neighborMap.get(currentWord).add(nextWord);
+    }
   }
 
   /**
@@ -99,10 +115,27 @@ public class UnigramWordPredictor implements WordPredictor {
    * @return the predicted next word, or null if no prediction can be made
    */
   public String predictNextWord(List<String> context) {
-    // TODO: Return a predicted word given the words preceding it
+    // DONE: Return a predicted word given the words preceding it
     // Hint: only the last word in context should be looked at
-    return null;
-  }
+    if (context == null || context.isEmpty()) { // check if null or empty
+      return null;
+    }
+
+    // getting the last word from context
+    String lastWord = context.get(context.size() - 1);
+
+    // retrieving next possible words from neighborMap
+    List<String> possibleNextWords = neighborMap.get(lastWord);
+
+    // if there are no next words available
+    if (possibleNextWords == null || possibleNextWords.isEmpty()) {
+      return null;
+    }
+
+    // selecting a random next word from possible options 
+    Random random = new Random();
+    return possibleNextWords.get(random.nextInt(possibleNextWords.size())); // return a randomly selected word from possibleNextWords
+  } 
   
   /**
    * Returns a copy of the neighbor map. The neighbor map is a mapping 
