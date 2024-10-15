@@ -41,9 +41,10 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     String stringLower = stringInput.toString().toLowerCase();
 
     //Split by space and newlines
-    String[] splitString = stringLower.split("\\s+")
+    String[] splitString = stringLower.split("\\s+");
 
-    for (String word : tokens) {
+    for (String word : splitString) {
+      //If a string ends with a period, it removes it from the string (which is added as a token) and then adds a tokenized period right after
       if (word.endsWith(".")) {
         if (word.length() > 1) {
           tokens.add(word.substring(0, word.length()-1));
