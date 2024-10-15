@@ -55,12 +55,20 @@ public class UnigramWordPredictor implements WordPredictor {
     //into the new HashMap, neighborMap
     List<String> trainingWords = tokenizer.tokenize(scanner);
 
-    //initialize the map, this map will store each word as a key and list of words
-    //that follow it as the value
-    //for example "key, value"
+    //initialize the map, this map will store each word as 
+    //a key and list of words that follow it as the value for example "key, value"
     neighborMap = new HashMap<>();
 
+    //create a loop to interate through the trainingWords. 
+    //the -1 to prevent it from going out of bounds
+    for (int i = 0; i < trainingWords.size() - 1; i++) {
 
+    //get the word from current index i, we need words to find its followers
+      String currentWord = trainingWords.get(i);
+
+    //get the next word in the list, which immediately follows currentWord
+      String nextWord = trainingWords.get(i + 1);
+    }
   }
 
   /**
