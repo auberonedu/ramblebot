@@ -15,7 +15,7 @@ import java.util.Random;
  */
 public class UnigramWordPredictor implements WordPredictor {
   private Map<String, List<String>> neighborMap;
-  private Tokenizer tokenizer;
+  private Tokenizer tokenizer; 
 
   /**
    * Constructs a UnigramWordPredictor with the specified tokenizer.
@@ -131,12 +131,18 @@ public class UnigramWordPredictor implements WordPredictor {
     // Hint: only the last word in context should be looked at
 
     String lastWord = context.get(context.size() - 1);
-    
-    Map<String, Double> nextWordProbabilities = getNextWordProbability(lastWord);
+
+    Map<String, Double> nextWordProbabilities = getNextWordProbabilities(lastWord);
 
     double randomValue = Math.random();
-    
+    double cumulativeProbability = 0.0;
 
+    for (Map.Entry<String, Double> entry : nextWordProbabilities.entrySet()) {
+      cumulativeProbability += entry.getValue();
+        if (randomValue < cumulativeProbability) {
+          return entry.getKey(); // If the random value is less than the cumulative probability, return the current word.
+        }
+    }
     return null;
   }
 
