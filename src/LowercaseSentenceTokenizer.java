@@ -35,12 +35,24 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     // initialize list
     List<String> inputStrings = new ArrayList<>();
 
+    // https://howtodoinjava.com/java/string/java-string-split-example/
+    // learned patterns for useDelimiter method here and applied using trial and error to find the right combo
+    // scanner.useDelimiter("[,\\s]+|(?<=\\.)\\s+|(?=\\.)\\w+");
+
     // loop to check if file has next line
     while (scanner.hasNextLine()){
       // store next word in string variable
       String word = scanner.next();
-      // add into list
-      inputStrings.add(word.toLowerCase());
+      // String endsWith method to check end of word if it has "."
+      if (word.endsWith(".")) {
+        // take only the word not the period and add that word and period as separate tokens
+        String wordNoPeriod = word.substring(0, word.length()-1);
+        inputStrings.add(wordNoPeriod);
+        inputStrings.add(".");
+      } else {
+        // add into list if doesn't end in period
+        inputStrings.add(word.toLowerCase());
+      }
     }
     return inputStrings;
   }
