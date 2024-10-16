@@ -118,9 +118,18 @@ public class UnigramWordPredictor implements WordPredictor {
   public String predictNextWord(List<String> context) {
     // TODO: Return a predicted word given the words preceding it
     // Hint: only the last word in context should be looked at
-    Random rand = new Random();
-    
-    return null;
+
+    // create random class instance
+    Random r = new Random();
+
+    // get the last word from the list
+    String lastWord = context.get(context.size() - 1);
+
+    // store the words that follow lastWord in List variable
+    List<String> followupWords = neighborMap.get(lastWord);
+
+    // return the word that was randomly selected using Random class
+    return followupWords.get(r.nextInt(context.size()));
   }
   
   /**
