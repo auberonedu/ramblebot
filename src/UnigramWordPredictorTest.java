@@ -50,7 +50,7 @@ class UnigramWordPredictorTest {
             "slept", List.of("."),
             "barked", List.of(".")
         );
-
+        
         assertEquals(expectedMap, neighborMap);
     }
 
