@@ -68,6 +68,13 @@ public class UnigramWordPredictor implements WordPredictor {
 
     //get the next word in the list, which immediately follows currentWord
       String nextWord = trainingWords.get(i + 1);
+      
+    //if currentWord is not already a key in neighborMap, 
+    //initilaize a new ArrayList
+      neighborMap.putIfAbsent(currentWord, new ArrayList<>());
+
+    //add nextWord to the list of following currentWord
+      neighborMap.get(currentWord).add(nextWord);
     }
   }
 
