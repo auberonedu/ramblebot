@@ -37,6 +37,7 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
 
     // https://howtodoinjava.com/java/string/java-string-split-example/
     // learned patterns for useDelimiter method here and applied using trial and error to find the right combo
+    // planned to use "useDelimiter", however I could not figure out the regex patterns for what I wanted, also learned it wouldn't be as effecient as what I have below
     // scanner.useDelimiter("[,\\s]+|(?<=\\.)\\s+|(?=\\.)\\w+");
 
     // loop to check if file has next line
