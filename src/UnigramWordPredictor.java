@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Random;
 
 import org.junit.jupiter.params.shadow.com.univocity.parsers.common.StringCache;
 
@@ -73,8 +74,6 @@ public class UnigramWordPredictor implements WordPredictor {
         neighborMap.get(word).add(nextWord);
       }
     }
-
-    System.out.println(neighborMap);
   }
 
   /**
@@ -128,6 +127,22 @@ public class UnigramWordPredictor implements WordPredictor {
   public String predictNextWord(List<String> context) {
     // TODO: Return a predicted word given the words preceding it
     // Hint: only the last word in context should be looked at
+
+    String lastWord = context.get(context.size() - 1);
+    List<String> wordValues = neighborMap.get(lastWord);
+
+    Random randomWords = new Random();
+
+    System.out.println(lastWord);
+    System.out.println(wordValues);
+
+    int randomValue = randomWords.nextInt(wordValues.size());
+
+    System.out.println(randomValue);
+
+    // String randomWord = randomValue(wordValues);
+
+
     return null;
   }
 
