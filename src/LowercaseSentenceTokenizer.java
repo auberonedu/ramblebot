@@ -49,16 +49,10 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
         String output = word.substring(0, periodLoc);
         convertedSentance.add(output);
         convertedSentance.add(period);
-        /*
-         * if (periodLoc < word.length()) {
-         * convertedSentance.add(word.substring(periodLoc + 1));
-         * }
-         */
       } else {
         convertedSentance.add(word.toLowerCase());
       }
 
-      // Print the output to the console to ensure it works
     }
 
     System.out.println("Got Called");
