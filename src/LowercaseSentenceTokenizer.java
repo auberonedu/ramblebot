@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * A tokenizer that converts text input to lowercase and splits it 
+ * A tokenizer that converts text input to lowercase and splits it
  * into a list of tokens, where each token is either a word or a period.
  */
 public class LowercaseSentenceTokenizer implements Tokenizer {
@@ -40,18 +40,34 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     while(scanner.hasNext()){
 
       // The regex "(?=[,.])|(?<=[,.])" means that it is going to make the incisions for the word before and after by 'looking' and createing that specific word as a token, while also including the split criteria as a token as well!
-      String[] test = scanner.next().split("(?=[,.])|(?<=[,.])");
-      for (String token: test){
-        tokenizedList.add(token.toLowerCase());
+      // String[] test = scanner.next().split("(?=[,.])|(?<=[,.])");
+
+      String tokenHolder = scanner.next();
+      int periodIndex = tokenHolder.indexOf('.');
+     
+       
+        if(periodIndex > -1){
+          
+          // the portion before the period
+          tokenizedList.add(tokenHolder.substring(0, periodIndex).toLowerCase());
+          
+          // add period
+          tokenizedList.add(".");
+          
+
+          //add after the period - For some reason getting rid of this makes it work except the last one
+          //tokenizedList.add(tokenHolder.substring(0, periodIndex + 1).toLowerCase());
+
+        }
+        else{
+          tokenizedList.add(tokenHolder.toLowerCase());
+        }
+
       }
      
-      // old method
-      // tokenizedList.add(scanner.next().toLowerCase());
-
-    }
-    //Going to output a string
+    
   
-    return tokenizedList;
-  }
-}
+  // Going to output a string
 
+  return tokenizedList;
+}}
