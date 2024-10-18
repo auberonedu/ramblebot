@@ -40,9 +40,6 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
 
     List<String> tokenizedSentence = new ArrayList<>();
 
-    //Testing Debug
-    System.out.println("Got called");
-
     while (scanner.hasNext()) {
 
       String token = scanner.next();
@@ -61,7 +58,6 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
       {
         tokenizedSentence.add(token.toLowerCase());
       }
-
     }
 
     return tokenizedSentence;

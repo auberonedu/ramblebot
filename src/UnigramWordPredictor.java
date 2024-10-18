@@ -5,8 +5,6 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Random;
 
-import org.junit.jupiter.params.shadow.com.univocity.parsers.common.StringCache;
-
 /**
  * A class for predicting the next word in a sequence using a unigram model.
  * The model is trained on input text and maps each word to a list of
