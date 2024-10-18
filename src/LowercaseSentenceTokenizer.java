@@ -42,11 +42,18 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
       // Target each word in a given sentence
       String word = scanner.next();
 
-      if (word.contains(".")) {
+      if (word.charAt(word.length() - 1) == '.') {
         word.toLowerCase();
-        String period = word.substring(word.length() - 1);
-        convertedSentance.add(word.substring(0, word.length() - 1));
+        int periodLoc = word.length() - 1;
+        String period = ".";
+        String output = word.substring(0, periodLoc);
+        convertedSentance.add(output);
         convertedSentance.add(period);
+        /*
+         * if (periodLoc < word.length()) {
+         * convertedSentance.add(word.substring(periodLoc + 1));
+         * }
+         */
       } else {
         convertedSentance.add(word.toLowerCase());
       }
