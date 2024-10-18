@@ -48,7 +48,8 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
       if (word.endsWith(".")) {
         // take only the word not the period and add that word and period as separate tokens
         String wordNoPeriod = word.substring(0, word.length()-1);
-        inputStrings.add(wordNoPeriod);
+        // need to add to lowercase here, bug found in testing
+        inputStrings.add(wordNoPeriod.toLowerCase());
         inputStrings.add(".");
       } else {
         // add into list if doesn't end in period
