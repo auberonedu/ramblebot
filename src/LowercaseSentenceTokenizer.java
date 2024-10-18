@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,7 +31,32 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
    */
   public List<String> tokenize(Scanner scanner) {
     // TODO: Implement this function to convert the scanner's input to a list of words and periods
-    return null;
+
+    // initialize list
+    List<String> inputStrings = new ArrayList<>();
+
+    // https://howtodoinjava.com/java/string/java-string-split-example/
+    // learned patterns for useDelimiter method here and applied using trial and error to find the right combo
+    // planned to use "useDelimiter", however I could not figure out the regex patterns for what I wanted, also learned it wouldn't be as effecient as what I have below
+    // scanner.useDelimiter("[,\\s]+|(?<=\\.)\\s+|(?=\\.)\\w+");
+
+    // loop to check if file has next line
+    while (scanner.hasNextLine()){
+      // store next word in string variable
+      String word = scanner.next();
+      // String endsWith method to check end of word if it has "."
+      if (word.endsWith(".")) {
+        // take only the word not the period and add that word and period as separate tokens
+        String wordNoPeriod = word.substring(0, word.length()-1);
+        // need to add to lowercase here, bug found in testing
+        inputStrings.add(wordNoPeriod.toLowerCase());
+        inputStrings.add(".");
+      } else {
+        // add into list if doesn't end in period
+        inputStrings.add(word.toLowerCase());
+      }
+    }
+    return inputStrings;
   }
 }
 
