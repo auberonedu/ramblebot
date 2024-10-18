@@ -39,7 +39,14 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
 
     while(scanner.hasNext()){
 
-      tokenizedList.add(scanner.next());
+      // The regex "(?=[,.])|(?<=[,.])" means that it is going to make the incisions for the word before and after by 'looking' and createing that specific word as a token, while also including the split criteria as a token as well!
+      String[] test = scanner.next().split("(?=[,.])|(?<=[,.])");
+      for (String token: test){
+        tokenizedList.add(token.toLowerCase());
+      }
+     
+      // old method
+      // tokenizedList.add(scanner.next().toLowerCase());
 
     }
     //Going to output a string

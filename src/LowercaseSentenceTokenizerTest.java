@@ -51,6 +51,7 @@ class LowercaseSentenceTokenizerTest {
     }
 
     // Wave 3
+
     @Test
     void testTokenizeSentenceWithPeriod() {
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
