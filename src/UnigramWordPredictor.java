@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Random;
 
 /**
  * A class for predicting the next word in a sequence using a unigram model.
@@ -52,6 +53,26 @@ public class UnigramWordPredictor implements WordPredictor {
     List<String> trainingWords = tokenizer.tokenize(scanner);
 
     // TODO: Convert the trainingWords into neighborMap here
+    //initialize map (we in this case cannot do this within the 
+    //constructor, so we can point neighborMap within method to
+    //a new HashMap<>()
+    this.neighborMap = new HashMap<>();
+
+    //iterate over tokens; build NeighborMap
+    for (int i = 0; i < trainingWords.size() - 1; i++) {
+      String word = trainingWords.get(i); 
+      String nextWord = trainingWords.get(i + 1);
+
+      //check if word not in map
+      if (!neighborMap.containsKey(word)) {
+
+      //if not, add word with an empty list as its value
+      neighborMap.put(word, new ArrayList<>());
+      }
+
+      //add next word to list of neighbors for current word
+      neighborMap.get(word).add(nextWord);
+    }
   }
 
   /**
@@ -101,7 +122,34 @@ public class UnigramWordPredictor implements WordPredictor {
   public String predictNextWord(List<String> context) {
     // TODO: Return a predicted word given the words preceding it
     // Hint: only the last word in context should be looked at
-    return null;
+
+    //if context empty, return null
+    if (context == null || context.isEmpty()) {
+      return null;
+    }
+
+    //get last word from context
+    String lastWord = context.get(context.size() - 1);
+
+    //check if last word exists in neighborMap
+    if (!neighborMap.containsKey(lastWord)) {
+      return null; //no prediction can be made
+    }
+
+    //get list of possible next words for last word
+    List<String> neighbors = neighborMap.get(lastWord);
+
+    //if neighbor list empty return null
+    if (neighbors.isEmpty()) {
+      return null;
+    }
+
+    //randomly select one of the neighbors
+    Random random = new Random();
+    //get random index from neighbor list
+    int randomIndex = random.nextInt(neighbors.size()); 
+    //return word at that index
+    return neighbors.get(randomIndex);
   }
   
   /**

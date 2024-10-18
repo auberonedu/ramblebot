@@ -44,6 +44,8 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     // periods) to List and finally return the list
     List<String> tokens = new ArrayList<>();
 
+    // System.out.println("Got called"); //for debugging purpose, debug console
+
     // process each line in scanner
     while (scanner.hasNextLine()) {
       // read next line and convert to lowercase
