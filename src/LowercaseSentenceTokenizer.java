@@ -41,10 +41,14 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     while (scanner.hasNext()) {
       // Target each word in a given sentence
       String word = scanner.next();
-      word.toLowerCase();
-      convertedSentance.add(word);
+
       if (word.contains(".")) {
-        convertedSentance.add(word);
+        word.toLowerCase();
+        String period = word.substring(word.length() - 1);
+        convertedSentance.add(word.substring(0, word.length() - 1));
+        convertedSentance.add(period);
+      } else {
+        convertedSentance.add(word.toLowerCase());
       }
 
       // Print the output to the console to ensure it works
