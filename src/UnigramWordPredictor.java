@@ -65,9 +65,11 @@ public class UnigramWordPredictor implements WordPredictor {
       // check if the word is already in neighborMap using if else and if it isn't we will add it to neighborMap
       if (!neighborMap.containsKey(wordToken)) {
         neighborMap.put(wordToken, new ArrayList<>());
-      } else { // if it is in we will update and add in the next word that follows the current word
-        neighborMap.get(wordToken).add(nextWordToken);
-      }
+      }  
+      
+      // if it is in we will update and add in the next word that follows the current word
+      neighborMap.get(wordToken).add(nextWordToken);
+      
     }
   }
 
