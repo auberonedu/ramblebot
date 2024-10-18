@@ -66,7 +66,7 @@ public class UnigramWordPredictor implements WordPredictor {
       if (!neighborMap.containsKey(wordToken)) {
         neighborMap.put(wordToken, new ArrayList<>());
       }  
-      
+
       // if it is in we will update and add in the next word that follows the current word
       neighborMap.get(wordToken).add(nextWordToken);
       
@@ -131,7 +131,7 @@ public class UnigramWordPredictor implements WordPredictor {
     List<String> followupWords = neighborMap.get(lastWord);
 
     // return the word that was randomly selected using Random class
-    return followupWords.get(r.nextInt(context.size()));
+    return followupWords.get(r.nextInt(followupWords.size()));
   }
   
   /**
