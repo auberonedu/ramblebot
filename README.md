@@ -107,3 +107,6 @@ TURN SOMETHING IN BY THE DUE DATE EVEN IF YOU'RE NOT FINISHED.
 
 ## Validation
 Validating that I followed the steps from 'SETUP' and checking that I can push my repo by changing the README.
+
+## Extra Testing File
+Received an extra text file from Rebecca to check my code with. Ran it through ramble bot and generated a new 1-hit wonder lyric for T-Swift to use in her next song: "mine i'd go save the water's rough but missing you forget me like you held your long list she does"
