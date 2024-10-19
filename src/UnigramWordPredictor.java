@@ -132,8 +132,8 @@ public class UnigramWordPredictor implements WordPredictor {
       // Get the last word in the context
       String lastWord = context.get(context.size() - 1);
 
-      
-      return null;
+      List<String> possibleNextWords = neighborMap.get(lastWord);
+
   }
 
   /**
