@@ -3,10 +3,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Random;
+
 
 import org.junit.platform.engine.support.discovery.SelectorResolver.Match;
-
-import java.util.Random;
 
 /**
  * A class for predicting the next word in a sequence using a unigram model.
@@ -16,7 +16,6 @@ import java.util.Random;
 public class UnigramWordPredictor implements WordPredictor {
   private Map<String, List<String>> neighborMap;
   private Tokenizer tokenizer; 
-
   /**
    * Constructs a UnigramWordPredictor with the specified tokenizer.
    * 
@@ -67,17 +66,17 @@ public class UnigramWordPredictor implements WordPredictor {
     //the -1 to prevent it from going out of bounds
     for (int i = 0; i < trainingWords.size() - 1; i++) {
 
-    //get the word from current index i, we need words to find its followers
+      //get the word from current index i, we need words to find its followers
       String currentWord = trainingWords.get(i);
 
-    //get the next word in the list, which immediately follows currentWord
+      //get the next word in the list, which immediately follows currentWord
       String nextWord = trainingWords.get(i + 1);
-      
-    //if currentWord is not already a key in neighborMap, 
-    //initilaize a new ArrayList
+        
+      //if currentWord is not already a key in neighborMap, 
+      //initilaize a new ArrayList
       neighborMap.putIfAbsent(currentWord, new ArrayList<>());
 
-    //add nextWord to the list of following currentWord
+      //add nextWord to the list of following currentWord
       neighborMap.get(currentWord).add(nextWord);
     }
   }
@@ -130,20 +129,11 @@ public class UnigramWordPredictor implements WordPredictor {
     // TODO: Return a predicted word given the words preceding it
     // Hint: only the last word in context should be looked at
 
-    String lastWord = context.get(context.size() - 1);
+      // Get the last word in the context
+      String lastWord = context.get(context.size() - 1);
 
-    Map<String, Double> nextWordProbabilities = getNextWordProbabilities(lastWord);
-
-    double randomValue = Math.random();
-    double cumulativeProbability = 0.0;
-
-    for (Map.Entry<String, Double> entry : nextWordProbabilities.entrySet()) {
-      cumulativeProbability += entry.getValue();
-        if (randomValue < cumulativeProbability) {
-          return entry.getKey(); // If the random value is less than the cumulative probability, return the current word.
-        }
-    }
-    return null;
+      
+      return null;
   }
 
   /**
