@@ -58,6 +58,7 @@ Sometimes this button takes a little bit to show up when you first open VS Code.
 10. Hover over `ramblebot`. A few grey triangles should appear. Click the triangle the furthest to the left.
 11. You should expect to see all the tests fail. This is good! You haven't written your solution yet, so it's expected for them to fail.
 12. Validate that you can push to your repo by making any change to this README, adding, committing, and pushing it.
+### validating
 
 ## Understanding the Project
 
