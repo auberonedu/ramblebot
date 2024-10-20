@@ -32,24 +32,29 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
   public List<String> tokenize(Scanner scanner) {
     List<String> list = new ArrayList<String>();
     
+    // Loops through the provided text, ending when the text no longer has another word in it
     while(scanner.hasNext()){
+      // Grabs the next word in the text
       String token = scanner.next().toLowerCase();
 
+      // Checks to see if the word has a "." in it
       if(token.contains(".")){
+        // Grabs the index after the "."
         int indexAfterPeriod = token.indexOf(".") +1;
+        // Checks to make sure indexAfterPeriod is not larger than the size of the token
+        // AND checks that the char after "." isn't empty. Gets added to list if both tests pass
         if(indexAfterPeriod < token.length() && token.charAt(indexAfterPeriod) != ' '){
           list.add(token);
         } else{
+          // If the space after "." isn't empty, the token is broken up into before and after "."
           String[] tokens = token.split("\\.",2);
-          if(tokens.length>1){
+          // Adds the word before ".", and adds "." into the list
             list.add(tokens[0]);
             list.add(".");
-          }else{
-            list.add(tokens[0]);
-          }
+          
         
         }
-       
+       // Adds the word if "." wasn't involved
       } else{
         list.add(token);
       }
