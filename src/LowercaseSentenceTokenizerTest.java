@@ -20,12 +20,19 @@ public class LowercaseSentenceTokenizerTest {
         assertEquals(expected, actual);
         
     }
-}
 
     // Wave 2
-    /*
-     * Write your test here!
-     */
+    @Test
+    public void LowercaseSentenceTokenizerTest() {
+        LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
+        String input = "hello     hi hi hi    hello hello";
+        Scanner scanner = new Scanner(input);
+    
+        List<String> expected = Arrays.asList("hello", "hi", "hi", "hi", "hello", "hello");
+        List<String> actual = tokenizer.tokenize(scanner);
+    
+        assertEquals(expected, actual);
+    }
     
 
     // Wave 3
