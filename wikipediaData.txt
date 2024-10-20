@@ -1,4 +1,4 @@
-A Markov chain is a stochastic process where the probability of each event depends only on the state of the previous event. It can be thought of as "what happens next depends only on the current state." Markov chains can have discrete time steps (discrete-time Markov chain) or continuous time (continuous-time Markov chain). They are named after mathematician Andrey Markov.
+ Markov chain is a stochastic process where the probability of each event depends only on the state of the previous event. It can be thought of as "what happens next depends only on the current state." Markov chains can have discrete time steps (discrete-time Markov chain) or continuous time (continuous-time Markov chain). They are named after mathematician Andrey Markov.
 
 Markov chains are widely used in modeling real-world processes, including in fields like statistics, biology, economics, and physics. They form the basis of Markov chain Monte Carlo methods, which simulate sampling from complex probability distributions.
 
