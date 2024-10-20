@@ -38,6 +38,7 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
       String word = scanner.next().toLowerCase();
       
       if (word.endsWith(".")) {
+        // Found the endsWith() method at https://www.w3schools.com/java/ref_string_endswith.asp
         String word1 = word.substring(0, word.length() - 1);
 
         words.add(word1);
