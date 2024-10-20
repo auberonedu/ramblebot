@@ -43,7 +43,7 @@ class LowercaseSentenceTokenizerTest {
     void testTokenizeSentenceWithPeriod() {
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
         Scanner scanner = new Scanner("Hello world. This is an example.");
-        List<String> tokens = tokenizer.tokenize(scanner2);
+        List<String> tokens = tokenizer.tokenize(scanner);
 
         assertEquals(List.of("hello", "world", ".", "this", "is", "an", "example", "."), tokens);
     }

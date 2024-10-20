@@ -37,9 +37,20 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
       String token = scanner.next();
       
       if (token != null){
-      
+        
+        
+        if (token.endsWith(".")){
+          //String period = String.join("." + token);
+          String noPeriod = token.replace(".","");
+          tokens.add(noPeriod);
+          tokens.add(".");
+        } else
         tokens.add(token.toLowerCase());
+      
       }
+
+
+      
     }
       return tokens;
 
