@@ -134,6 +134,10 @@ public class UnigramWordPredictor implements WordPredictor {
 
       List<String> possibleNextWords = neighborMap.get(lastWord);
 
+      Random random = new Random();
+      int randomIndex = random.nextInt(possibleNextWords.size());
+      
+      return possibleNextWords.get(randomIndex);
   }
 
   /**
