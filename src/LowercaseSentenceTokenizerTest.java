@@ -39,7 +39,7 @@ class LowercaseSentenceTokenizerTest {
         assertEquals(List.of("this", "is", "a", "sentence", "with", "strange", "capitalization"), tokens);
     }
 
-    // Wave 3
+    // Wave 4
     @Test
     void testTokenizeSentenceWithPeriod() {
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
@@ -49,7 +49,7 @@ class LowercaseSentenceTokenizerTest {
         assertEquals(List.of("hello", "world", ".", "this", "is", "an", "example", "."), tokens);
     }
 
-    // Wave 3
+    // Wave 5
     @Test
     void testTokenizeWithInternalPeriod() {
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
