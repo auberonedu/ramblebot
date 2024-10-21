@@ -119,7 +119,10 @@ public class UnigramWordPredictor implements WordPredictor {
     return null;
     }
 
-    return null;
+    String lastString = context.get(context.size() - 1);
+
+    List<String> neighbor = neighborMap.get(lastString);
+    
   }
   
   /**
