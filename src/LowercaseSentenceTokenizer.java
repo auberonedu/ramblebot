@@ -47,19 +47,14 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
       String token = scanner.next().toLowerCase();
 
       // Create an empty string to be read for loop
-      String readWords = "";
+      String readString = "";
 
       for (int i = 0; i < token.length(); i++) {
+        // This will get the current index and onto the next
+        String currentString = token.charAt(i) + "";
 
-        
+
       }
-
-      
-
-
-
-
-
     }
     // Returns all the words and periods
     return tokens;
