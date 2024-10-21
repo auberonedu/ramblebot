@@ -1,4 +1,4 @@
-Liza Khrapahc
+Liza Khrapach
 
 # ramblebot
 
