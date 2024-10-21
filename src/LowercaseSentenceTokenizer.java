@@ -7,10 +7,10 @@ import java.util.Scanner;
  * into a list of tokens, where each token is either a word or a period.
  */
 public class LowercaseSentenceTokenizer implements Tokenizer {
+  
   /**
    * Tokenizes the text from the given Scanner. The method should 
    * convert the text to lowercase and split it into words and periods.
-   * Words are separated by spaces, and periods are treated as separate tokens.
    * 
    * For example:
    * If the input text is: "Hello world. This is an example."
@@ -30,13 +30,35 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
    * @return a list of tokens, where each token is a word or a period
    */
   public List<String> tokenize(Scanner scanner) {
-    List<String> words = new ArrayList<>();
-    while(scanner.hasNext()){
+    List<String> tokens = new ArrayList<>();
+    
+    // Iterate through each word in the scanner
+    while (scanner.hasNext()) {
       String word = scanner.next().toLowerCase();
-      words.add(word);
+      
+      // Check if the word ends with a period and is not an internal period
+      if (word.endsWith(".") && word.length() > 1 && !isInternalPeriod(word)) {
+        // Add the word without the period
+        tokens.add(word.substring(0, word.length() - 1));
+        // Add the period as a separate token
+        tokens.add(".");
+      } else {
+        // Add the word as is (including internal periods)
+        tokens.add(word);
+      }
     }
     
-    return words;
+    return tokens;
+  }
+
+  /**
+   * Helper method to check if a period is internal (e.g., in "Dr.Smith").
+   * It ensures the period is inside the word, not at the end.
+   *
+   * @param word the word to check
+   * @return true if the period is internal, false if it is at the end of the word
+   */
+  private boolean isInternalPeriod(String word) {
+    return word.matches("[a-zA-Z]+\\.[a-zA-Z]+");  // Detects a word with a period in the middle (e.g., "Dr.Smith")
   }
 }
-
