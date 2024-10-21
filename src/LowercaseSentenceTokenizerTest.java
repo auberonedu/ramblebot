@@ -17,7 +17,11 @@ class LowercaseSentenceTokenizerTest {
 
     // Wave 2
     @Test
-    void testTokenWithSpaces() {
+    void testTokenizeWithSpaces() {
+    // Test these inputs with multiple spaces
+    String input = "hello   hi hi hi   hello hello";
+    //This will initialize the scanner within the string
+    Scanner scanner = new Scanner(input);
 
     }
     }
