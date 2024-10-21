@@ -60,6 +60,7 @@ public class UnigramWordPredictor implements WordPredictor {
       }
       neighborMap.get(current).add(next);
     } 
+    
   }
 
 
@@ -109,8 +110,11 @@ public class UnigramWordPredictor implements WordPredictor {
    */
   public String predictNextWord(List<String> context) {
     // TODO: Return a predicted word given the words preceding it
+    if (context == null){
+      return null;
+    }
+    String lastWord = context.get(context.size() - 1);
     // Hint: only the last word in context should be looked at
-    return null;
   }
   
   /**
