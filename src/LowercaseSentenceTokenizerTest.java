@@ -19,7 +19,11 @@ class LowercaseSentenceTokenizerTest {
     /*
      * Write your test here!
      */
-    
+    @Test
+    void testLowercaseSentenceTokenizerTest() {
+        LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
+        Scanner scanner = new Scanner("hello hi hi hi hello hello");
+    }
 
     // Wave 3
     @Test

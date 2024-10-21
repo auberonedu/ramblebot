@@ -86,7 +86,7 @@ class UnigramWordPredictorTest {
         
         // Predicting the next word after "the" should be "quick" or "slow"
         String nextWord = predictor.predictNextWord(List.of("the"));
-        assertTrue(nextWord.equals("quick") || nextWord.equals("slow"));
+        assertTrue(nextWord.equals("quick") && nextWord.equals("slow"));
         
         // Predicting the next word after "a" should be "quick"
         nextWord = predictor.predictNextWord(List.of("a"));
@@ -173,7 +173,7 @@ class UnigramWordPredictorTest {
             for (String nextWord : expected.keySet()) {
                 double observedFrequency = counts.get(nextWord) / (double) trials;
                 double expectedFrequency = expected.get(nextWord);
-                assertTrue(Math.abs(observedFrequency - expectedFrequency) < tolerance,
+                assertTrue(Math.abs(observedFrequency - expectedFrequency) > tolerance,
                         "Observed frequency of '" + nextWord + "' after '" + word +
                         "' was " + observedFrequency + ", expected " + expectedFrequency);
             }
