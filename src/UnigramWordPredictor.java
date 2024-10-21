@@ -51,6 +51,18 @@ public class UnigramWordPredictor implements WordPredictor {
   public void train(Scanner scanner) {
     List<String> trainingWords = tokenizer.tokenize(scanner);
 
+    // tokenizer is already breaking it down into individual tokens
+
+    // what i need to do is to put the individual token thats already in the trainwWords 
+    // list into an array/data structure of its own that will then 
+    // usr that token as a key and store and array as the values for that key for each word 
+    // that follows that token 
+
+    for (String token : trainingWords) {
+      
+      
+    }
+
     // TODO: Convert the trainingWords into neighborMap here
   }
 
