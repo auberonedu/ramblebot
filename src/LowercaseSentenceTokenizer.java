@@ -39,15 +39,27 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     // ArrayList stores the token
     List<String> tokens = new ArrayList<>();
 
-    // The loop continuously reads the token in the Scanner
-    // along with hasNext() to check if there's more to read
+    // The loop will continuously reads the token in the Scanner along with hasNext() to check if there's more to read
     while (scanner.hasNext()) {
 
       // Reads the input and converts it to lowercase
-      String token = scanner.next().toLowerCase();
       // tokens.add(scanner.next().toLowerCase());
+      String token = scanner.next().toLowerCase();
+
+      // Create an empty string to be read for loop
+      String readWords = "";
+
+      for (int i = 0; i < token.length(); i++) {
+
+        
+      }
 
       
+
+
+
+
+
     }
     // Returns all the words and periods
     return tokens;
