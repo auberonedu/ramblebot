@@ -34,6 +34,8 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     
     // TODO: Implement this function to convert the scanner's input to a list of words and periods
 
+    // This is for Wave 1 and Wave 3!
+
     // ArrayList stores the token
     List<String> tokens = new ArrayList<>();
 
@@ -45,5 +47,6 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     // Returns all the words and periods
     return tokens;
   }
+
 }
 

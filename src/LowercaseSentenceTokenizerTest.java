@@ -34,7 +34,6 @@ class LowercaseSentenceTokenizerTest {
     assertEquals(List.of("hello", "hi", "hi", "hi", "hello", "hello"), tokens);
     }
     
-    
 
     // Wave 3
     @Test
