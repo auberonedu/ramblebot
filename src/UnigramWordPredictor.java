@@ -115,14 +115,24 @@ public class UnigramWordPredictor implements WordPredictor {
    * @return the predicted next word, or null if no prediction can be made
    */
   public String predictNextWord(List<String> context) {
+    //Check if context is empty or null
     if (context == null || context.isEmpty()) {
     return null;
     }
 
+    //Using the hint, storing the last word
     String lastString = context.get(context.size() - 1);
 
+    //Checks if the last word is in the map
     List<String> neighbor = neighborMap.get(lastString);
-    
+    if (neighbor == null || neighbor.isEmpty()) {
+      //If there is no prediction
+      return null;
+    }
+
+    //Using random, it selects a word from the neighbor map
+    int ranIndex = random.nextInt(neighbor.size());
+    return neighbor.get(ranIndex);
   }
   
   /**
