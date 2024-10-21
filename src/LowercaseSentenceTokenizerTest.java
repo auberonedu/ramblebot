@@ -16,9 +16,16 @@ class LowercaseSentenceTokenizerTest {
     }
 
     // Wave 2
-    /*
-     * Write your test here!
-     */
+    @Test
+    void testTokenizeWithNoSpaces() {
+        LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
+        Scanner scanner = new Scanner("This is a  sentance      without extra spaces");
+        List<String> tokens = tokenizer.tokenize(scanner);
+
+        assertEquals(List.of("This", "is", "a", "sentance", "without", "extra", "spaces"), tokens);
+    }
+
+
     
 
     // Wave 3
