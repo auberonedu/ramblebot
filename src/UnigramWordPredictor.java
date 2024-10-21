@@ -50,9 +50,23 @@ public class UnigramWordPredictor implements WordPredictor {
    */
   public void train(Scanner scanner) {
     List<String> trainingWords = tokenizer.tokenize(scanner);
-
     // TODO: Convert the trainingWords into neighborMap here
-  }
+    // Initializing neighborMap
+    Map<String, List<String>> neighborMap = new HashMap<>();
+
+    // Looping through a list of training words to populate neighborMap
+    for (int i = 0; i < trainingWords.size() - 1; i++) {
+        String currentWord = trainingWords.get(i);
+        String nextWord = trainingWords.get(i + 1);
+
+        // If currentWord is already in the map, then add the nextWord to the list
+        if (!neighborMap.containsKey(currentWord)) {
+          neighborMap.put(currentWord, new ArrayList<>());
+        }
+        neighborMap.get(currentWord).add(nextWord);
+      } 
+      this.neighborMap = neighborMap;
+    }
 
   /**
    * Predicts the next word based on the given context.
