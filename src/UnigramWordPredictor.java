@@ -20,9 +20,9 @@ public class UnigramWordPredictor implements WordPredictor {
    */
   public UnigramWordPredictor(Tokenizer tokenizer) {
     this.tokenizer = tokenizer;
-  }
-
-  /**
+    this.neighborMap = new HashMap<>();
+  } 
+   /* 
    * Trains the predictor using the text provided by the Scanner.
    * The method tokenizes the text and builds a map where each word 
    * is associated with a list of words that immediately follow it 
@@ -50,8 +50,18 @@ public class UnigramWordPredictor implements WordPredictor {
    */
   public void train(Scanner scanner) {
     List<String> trainingWords = tokenizer.tokenize(scanner);
-
+    
     // TODO: Convert the trainingWords into neighborMap here
+
+
+    for (int i = 0; i < trainingWords.size() - 1; i++) {
+      String currentWord = trainingWords.get(i);
+      String nextWord = trainingWords.get(i + 1);
+      
+      neighborMap.putIfAbsent(currentWord, new ArrayList<>());
+      neighborMap.get(currentWord).add(nextWord);
+    }
+
   }
 
   /**
