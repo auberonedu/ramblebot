@@ -63,7 +63,7 @@ Sometimes this button takes a little bit to show up when you first open VS Code.
 
 The goal of this project is to make a bot that can generate new text in the style of some writer. It will do this by reading some input writing, and then word-by-word generating new text that mimics it.
 
-## Wave 1
+## Wave 1 (Completed)
 In wave 1, you will start implementing `tokenize` in `LowercaseSentenceTokenizer.java`. The goal is to take a scanner, read through it, and return a list of words that were separated by spaces/newlines. For example, if the scanner had the following text:
 ```
 this is a lowercase sentence without a period
@@ -75,14 +75,14 @@ Then tokenize should return a list that looks like this:
 
 I recommend not yet worrying about periods or capitalization. You will improve your code in later waves to handle this. `testTokenizeWithNoCapitalizationOrPeriod` in `LowercaseSentenceTokenizerTest` will exercise this functionality. The other tests will likely still fail. This is OK! You'll tackle them in later waves. Add commit and push your code if you have not already!
 
-## Wave 2
+## Wave 2 (Completed)
 In wave 2, you will add your own test. You should test that your code properly handles input with many spaces. For example, something like: 
 ```
 hello     hi hi hi    hello hello
 ```
 Write your test in `LowercaseSentenceTokenizerTest` where indicated by the comment, and verify it passes. Fix any bugs in your code if you find them. Add commit and push your code if you have not already!
 
-## Wave 3
+## Wave 3 (Completed)
 In wave 3, you will finish the implementation of `tokenize`. Read the Javadoc carefully to understand what to do. Successfully completing this wave should make the remaining tests in `LowercaseSentenceTokenizerTest` pass. Add, commit, and push your code!
 
 ## Wave 4
