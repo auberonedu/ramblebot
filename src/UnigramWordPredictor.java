@@ -57,10 +57,29 @@ public class UnigramWordPredictor implements WordPredictor {
     // list into an array/data structure of its own that will then 
     // usr that token as a key and store and array as the values for that key for each word 
     // that follows that token 
+    Map<String, List<String>> predictorMap = new HashMap<>();
+    
+    for(int i = 0; i < trainingWords.size() - 1; i++){
+      // grabbing the token to check 
+      String token = trainingWords.get(i);
+      // grabbing the word following the token to check 
+      String nextToken = trainingWords.get(i + i);
 
-    for (String token : trainingWords) {
-      
-      
+      if(predictorMap.containsKey(token)){
+        // if the new map were creating contains the token as a Key already
+        // then it will just add that nextToken to the list/array of strings associated
+        // with that token 
+        predictorMap.get(token).add(nextToken);
+      }
+      else{
+        // if not, we need to put the next token into the list 
+        // so that it can match the data type we need to put it into the hashmap
+        // and later add more nextWord tokens into the array
+        // then we put this in as a new entry to the hashMap 
+        List<String> nextTokenList = new ArrayList<>();
+        nextTokenList.add(nextToken);
+        predictorMap.put(token, nextTokenList);
+      }
     }
 
     // TODO: Convert the trainingWords into neighborMap here
