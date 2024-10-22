@@ -61,7 +61,7 @@ public class UnigramWordPredictor implements WordPredictor {
       }
       neighborMap.get(current).add(next);
     } 
-    
+    this.neighborMap = neighborMap;
   }
 
 
