@@ -32,18 +32,25 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
   public List<String> tokenize(Scanner scanner) {
     // Completed: TODO: Implement this function to convert the scanner's input to a list of words and periods
 
+    // Instantiates a new String ArrayList to hold all the tokens/words from Scanner
     List<String> words = new ArrayList<>();
 
+    // Loops through the Scanners input as long as there are more lines
     while (scanner.hasNextLine()) {
+      // Reads in and saves each work/token in the word variable using scanner and converting it to lowercase
       String word = scanner.next().toLowerCase();
       
+      // Checks whether a word/token ends with a period using the endsWith method
       if (word.endsWith(".")) {
+        // Saves the part of the word without a period in the word1 variable using substring and length
         // Found the endsWith() method at https://www.w3schools.com/java/ref_string_endswith.asp
         String word1 = word.substring(0, word.length() - 1);
 
+        // Adds the word without the period and then adds the period as a seperate entry into the ArrayList
         words.add(word1);
         words.add(".");
       } else {
+        // If the word doesn't have a period the word is added directly into the ArrayList
         words.add(word);
       }
     }

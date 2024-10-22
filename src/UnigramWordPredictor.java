@@ -54,15 +54,25 @@ public class UnigramWordPredictor implements WordPredictor {
     List<String> trainingWords = tokenizer.tokenize(scanner);
 
     // Completed: TODO: Convert the trainingWords into neighborMap here
+    // Instantiates a new HashMap of neighborMap to store the currentWord and the
+    // words that follow
     neighborMap = new HashMap<>();
 
+    // Loops through the trainingWords String List, stopping one word/token before
+    // the end of the list
     for (int i = 0; i < trainingWords.size() - 1; i++) {
+      // Saves the current word of index i and the word that follows it
       String currentWord = trainingWords.get(i);
       String nextWord = trainingWords.get(i + 1);
 
+      // Checkes whether neighborMap does not already contain the current word
       if (!neighborMap.containsKey(currentWord)) {
+        // Adds the current word as a key and an empty ArrayList as the value inside of
+        // neighborMap
         neighborMap.put(currentWord, new ArrayList<>());
       }
+      // Adds the next word that follows currentWord into the ArrayList if the current
+      // word has already been added as a key in neighborMap
       neighborMap.get(currentWord).add(nextWord);
     }
   }
@@ -118,20 +128,30 @@ public class UnigramWordPredictor implements WordPredictor {
   public String predictNextWord(List<String> context) {
     // Completed: TODO: Return a predicted word given the words preceding it
     // Hint: only the last word in context should be looked at
+
+    // Checks wheter context is empty or null, returning null if so
     if (context.isEmpty() | context == null) {
       return null;
     }
 
+    // Saves the last word in context as a String
     String endingWord = context.get(context.size() - 1);
 
+    // Instantiates a new String list to save the possible following words from neighborMap
     List<String> followUpWords = neighborMap.get(endingWord);
 
+    // Checks wheter followUpWords is empty or null, returning null if so
     if (followUpWords.isEmpty() | followUpWords == null) {
       return null;
     }
 
+    // Instantiaties a new Random object for generating random numbers
     Random rand = new Random();
+
+    // Saves the randomly generated index based on the size of followUpWords
     int predictedIndex = rand.nextInt(followUpWords.size());
+
+    // Gets the randomly predicted word and saves it in a String variable
     String predictedWord = followUpWords.get(predictedIndex);
 
     return predictedWord;
