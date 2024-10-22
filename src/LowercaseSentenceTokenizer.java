@@ -41,19 +41,24 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
 
     // The loop will continuously reads the token in the Scanner along with hasNext() to check if there's more to read
     while (scanner.hasNext()) {
-
+      // tokens.add(scanner.next().toLowerCase()); <- used in Wave 1
       // Reads the input and converts it to lowercase
-      // tokens.add(scanner.next().toLowerCase());
       String token = scanner.next().toLowerCase();
 
-      // Create an empty string to be read for loop
-      String readString = "";
+      // This condition checks if token is not empty AND checks if there's a period at the end
+      // Resourse for using charAt() and substring():
+      // https://www.geeksforgeeks.org/java-string-charat-method-example/
+      if (token.length() > 0 && token.charAt(token.length() - 1) == '.') {
 
-      for (int i = 0; i < token.length(); i++) {
-        // This will get the current index and onto the next
-        String currentString = token.charAt(i) + "";
-
-
+        // To create a new String that will have the original token
+        // The add method separates the punctuations from words
+        String periodNotFound = token.substring(0, token.length() - 1);
+        tokens.add(periodNotFound);
+        tokens.add(".");
+      }
+      // if token does not end with period and adds to the 'tokens' list
+      else {
+        tokens.add(token);
       }
     }
     // Returns all the words and periods
