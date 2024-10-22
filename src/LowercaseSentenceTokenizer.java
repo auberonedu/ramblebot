@@ -44,15 +44,26 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     for (int i = 0; i < input.length(); i++) {
       char currentChar = input.charAt(i);
 
-      // If it's period and it's at the end of a word
-      if (currentChar == '.') {
+      // Checking if the current character is a period, also checking if there is a space after the period.
+      // Java Docs on the .isWhitespace method from the Character class. vvv
+      // Link: https://docs.oracle.com/javase/6/docs/api/java/lang/Character.html#isWhitespace(int)
+      if (currentChar == '.' && (i == input.length() - 1 || Character.isWhitespace(input.charAt(i + 1)))) {
         if (!currentToken.isEmpty()) {
           tokens.add(currentToken);
           currentToken = "";
           }
           tokens.add(".");
         }
-        // Else its part of a word
+
+        // Checking the current character for whitespace, and if there is a word the program will add the token.
+        else if (Character.isWhitespace(currentChar)) {
+          if (!currentToken.isEmpty()) {
+            tokens.add(currentToken);
+            currentToken = "";
+          }
+        }
+
+        // If the current character is part of a word, the program will be added to currentToken
         else {
           currentToken += currentChar;
         }
