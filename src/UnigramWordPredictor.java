@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -106,10 +107,21 @@ public class UnigramWordPredictor implements WordPredictor {
    * @return the predicted next word, or null if no prediction can be made
    */
   public String predictNextWord(List<String> context) {
-    // TODO: Return a predicted word given the words preceding it
-    // Hint: only the last word in context should be looked at
+    if (context == null || context.isEmpty()) {
     return null;
   }
+  String lastWord = context.get(context.size() - 1);
+  List<String> possibleNextWords = neighborMap.get(lastWord);
+
+  if (possibleNextWords == null || possibleNextWords.isEmpty()) {
+      return null;
+  }
+
+  Random random = new Random();
+
+  int randomIndex = random.nextInt(possibleNextWords.size());
+  return possibleNextWords.get(randomIndex);
+}
   
   /**
    * Returns a copy of the neighbor map. The neighbor map is a mapping 
