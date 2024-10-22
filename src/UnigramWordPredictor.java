@@ -117,6 +117,9 @@ public class UnigramWordPredictor implements WordPredictor {
     String lastWord = context.get(context.size() - 1);
     List<String> neighbors = neighborMap.get(lastWord);
     // Hint: only the last word in context should be looked at
+    if (neighbors == null){
+      return null;
+    }
     Random rand = new Random();
     return neighbors.get(rand.nextInt(neighbors.size()));
   }
