@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import java.util.Random;
+
 /**
  * A class for predicting the next word in a sequence using a unigram model.
  * The model is trained on input text and maps each word to a list of 
@@ -106,8 +108,9 @@ public class UnigramWordPredictor implements WordPredictor {
    */
   public String predictNextWord(List<String> context) {
     // TODO: Return a predicted word given the words preceding it
-    // Hint: only the last word in context should be looked at
-    return null;
+    Random random = new Random();
+
+    return context.get(random.nextInt(context.size()));
   }
   
   /**
