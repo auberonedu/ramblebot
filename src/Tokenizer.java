@@ -14,5 +14,5 @@ public interface Tokenizer {
    * @param scanner the Scanner to read the input text from
    * @return a list of tokens
    */
-  public List<String> tokenize(Scanner scanner);
+  public List<String> tokenize(Scanner scanner); 
 }

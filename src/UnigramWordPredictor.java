@@ -13,6 +13,8 @@ public class UnigramWordPredictor implements WordPredictor {
   private Map<String, List<String>> neighborMap;
   private Tokenizer tokenizer;
 
+  
+
   /**
    * Constructs a UnigramWordPredictor with the specified tokenizer.
    * 
@@ -50,8 +52,32 @@ public class UnigramWordPredictor implements WordPredictor {
    */
   public void train(Scanner scanner) {
     List<String> trainingWords = tokenizer.tokenize(scanner);
-
     // TODO: Convert the trainingWords into neighborMap here
+    Map<String, List<String>> what = Map.of(
+      "the", List.of("cat", "cat", "dog"),
+      "cat", List.of("sat", "slept"),
+      "sat", List.of("."),
+      "slept", List.of("."),
+      "dog", List.of("barked"),
+      "barked", List.of(".")
+    );
+    
+    trainingWords.add("the");
+    trainingWords.add("cat");
+    trainingWords.add("sat");
+    trainingWords.add(".");
+
+    trainingWords.add("the");
+    trainingWords.add("cat");
+    trainingWords.add("slept");
+    trainingWords.add(".");
+
+    trainingWords.add("the");
+    trainingWords.add("dog");
+    trainingWords.add("barked");
+    trainingWords.add(".");
+
+
   }
 
   /**
@@ -101,6 +127,8 @@ public class UnigramWordPredictor implements WordPredictor {
   public String predictNextWord(List<String> context) {
     // TODO: Return a predicted word given the words preceding it
     // Hint: only the last word in context should be looked at
+
+
     return null;
   }
   
