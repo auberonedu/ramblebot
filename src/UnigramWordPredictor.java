@@ -63,7 +63,7 @@ public class UnigramWordPredictor implements WordPredictor {
       // grabbing the token to check 
       String token = trainingWords.get(i);
       // grabbing the word following the token to check 
-      String nextToken = trainingWords.get(i + i);
+      String nextToken = trainingWords.get(i + 1);
 
       if(predictorMap.containsKey(token)){
         // if the new map were creating contains the token as a Key already
@@ -82,7 +82,11 @@ public class UnigramWordPredictor implements WordPredictor {
       }
     }
 
+
+
     // TODO: Convert the trainingWords into neighborMap here
+
+    neighborMap = predictorMap;
   }
 
   /**
