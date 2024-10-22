@@ -32,33 +32,26 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
   public List<String> tokenize(Scanner scanner) {
     List<String> tokens = new ArrayList<>();
     
-    // Iterate through each word in the scanner
-    while (scanner.hasNext()) {
-      String word = scanner.next().toLowerCase();
+    // Reading all text through this scanner
+    while (scanner.hasNextLine()) {
+      String line = scanner.nextLine().toLowerCase();
       
-      // Check if the word ends with a period and is not an internal period
-      if (word.endsWith(".") && word.length() > 1 && !isInternalPeriod(word)) {
-        // Add the word without the period
-        tokens.add(word.substring(0, word.length() - 1));
-        // Add the period as a separate token
-        tokens.add(".");
-      } else {
-        // Add the word as is (including internal periods)
-        tokens.add(word);
+      // Split the line by spaces
+      String[] words = line.split("\\s+");
+        
+      for (String word : words) {
+        if (!word.isEmpty()) {
+          // If the word ends with a period, it gets treated as separate
+          if (word.endsWith(".")) {
+            tokens.add(word.substring(0, word.length() - 1));
+            tokens.add(".");
+          } else {
+            tokens.add(word);
+          }
+        }
       }
     }
     
     return tokens;
-  }
-
-  /**
-   * Helper method to check if a period is internal (e.g., in "Dr.Smith").
-   * It ensures the period is inside the word, not at the end.
-   *
-   * @param word the word to check
-   * @return true if the period is internal, false if it is at the end of the word
-   */
-  private boolean isInternalPeriod(String word) {
-    return word.matches("[a-zA-Z]+\\.[a-zA-Z]+");  // Detects a word with a period in the middle (e.g., "Dr.Smith")
   }
 }
