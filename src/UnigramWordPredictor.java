@@ -49,9 +49,13 @@ public class UnigramWordPredictor implements WordPredictor {
    * 
    * @param scanner the Scanner to read the training text from
    */
+
+  //Scanner for readig the text
+  //builds neighborMap by iterating through the tokens.
+  //It identifies the word that follows it and it adds it to the list of that current word
   public void train(Scanner scanner) {
     List<String> trainingWords = tokenizer.tokenize(scanner); 
-    neighborMap = new HashMap<>();  
+    this.neighborMap = new HashMap<>();  
     
     for (int i = 0; i < trainingWords.size() - 1; i++) {
       String currentWord = trainingWords.get(i);
@@ -106,6 +110,11 @@ public class UnigramWordPredictor implements WordPredictor {
    * @param context a list of words representing the current context
    * @return the predicted next word, or null if no prediction can be made
    */
+
+   // checks if context is empty or null and returns if it is null
+   // retrieves the last word in the context and looks it up through neighbormap
+   // If there are next words it randomly selects one
+   //returns predicted word or null
   public String predictNextWord(List<String> context) {
     if (context == null || context.isEmpty()) {
     return null;

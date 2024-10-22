@@ -9,15 +9,12 @@ public class LowercaseSentenceTokenizerTest {
 
     // Wave 1
     @Test
-    public void testTokenizeWithNoCapitalizationOrPeriod() {
-         String input = "this is a lowercase sentence without a period";
+     void testTokenizeWithNoCapitalizationOrPeriod() {
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
-        Scanner scanner = new Scanner(input);
+        Scanner scanner = new Scanner("this is a lowercase sentence without a period");
+        List<String> tokens = tokenizer.tokenize(scanner);
         
-        List<String> expected = Arrays.asList("this", "is", "a", "lowercase", "sentence", "without", "a", "period");
-        List<String> actual = tokenizer.tokenize(scanner);
-        
-        assertEquals(expected, actual);
+        assertEquals(List.of("this", "is", "a", "lowercase", "sentence", "without", "a", "period"), tokens);
         
     }
 
