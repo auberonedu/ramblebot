@@ -35,7 +35,18 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     System.out.println("Got called");
     while(scanner.hasNext()) {
       String token = scanner.next();
-      tokens.add(token.toLowerCase());
+
+      if(token.charAt(token.length() - 1) == '.') {
+        
+        token = token.replace(".", "");
+        tokens.add(token);
+        tokens.add(".");
+
+      }
+      else {
+        tokens.add(token.toLowerCase());
+      }
+          
     }
     return tokens;
   }
