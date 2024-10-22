@@ -31,16 +31,13 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
    */
   public List<String> tokenize(Scanner scanner) {
     List<String> wordList = new ArrayList<String>();
-    //Regex generated from https://regex-generator.olafneumann.org/?sampleText=&flags=i
-    final String REGEX = "[A-Za-z]+\\.";
     // TODO: Implement this function to convert the scanner's input to a list of words and periods
     while(scanner.hasNext()) {
       String item = scanner.next();
       switch(item.charAt(item.length()-1)) {
         case '.':
-          String[] stringArray = item.split(REGEX); //I don't like how an array is getting reallocated for every iteration; will change at some point.
-          wordList.add(stringArray[0]);
-          wordList.add(stringArray[1]);
+          wordList.add(item.substring(0,item.length()-1));
+          wordList.add(item.substring(item.length()-1));
           break;
         default:
           wordList.add(item);
