@@ -62,7 +62,9 @@ public class UnigramWordPredictor implements WordPredictor {
     for(int i = 0; i < trainingWords.size() - 1; i++){
       // grabbing the token to check 
       String token = trainingWords.get(i);
-      // grabbing the word following the token to check 
+      // grabbing the word following the token to check
+      
+      // next time I need to ensure I am incrementing correct.../
       String nextToken = trainingWords.get(i + 1);
 
       if(predictorMap.containsKey(token)){
@@ -86,6 +88,8 @@ public class UnigramWordPredictor implements WordPredictor {
 
     // TODO: Convert the trainingWords into neighborMap here
 
+    // Not sure where this is getting pull for later although I am just literally
+    // taking the todo and assigning it to my product map 
     neighborMap = predictorMap;
   }
 
@@ -136,7 +140,16 @@ public class UnigramWordPredictor implements WordPredictor {
   public String predictNextWord(List<String> context) {
     // TODO: Return a predicted word given the words preceding it
     // Hint: only the last word in context should be looked at
-    return null;
+
+    String nextWord = null;
+
+    String checkedWord = context.getLast();
+
+    if(getNeighborMap().containsKey(checkedWord)){
+      return getNeighborMap().get(checkedWord).
+    }
+
+    return nextWord;
   }
   
   /**
