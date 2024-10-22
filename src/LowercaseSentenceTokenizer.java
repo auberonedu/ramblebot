@@ -36,11 +36,11 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
       String item = scanner.next();
       switch(item.charAt(item.length()-1)) {
         case '.':
-          wordList.add(item.substring(0,item.length()-1));
-          wordList.add(item.substring(item.length()-1));
+          wordList.add(item.substring(0,item.length()-1).toLowerCase());
+          wordList.add(item.substring(item.length()-1).toLowerCase());
           break;
         default:
-          wordList.add(item);
+          wordList.add(item.toLowerCase());
           break;
       }
     }
