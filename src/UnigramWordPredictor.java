@@ -1,8 +1,12 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+// import java.util.ArrayList;
+// import java.util.HashMap;
+// import java.util.List;
+// import java.util.Map;
+// import java.util.Scanner;
+
+// doing this to make things easier
+import java.util.*;
+import org.junit.jupiter.api.ClassOrderer.Random;
 
 /**
  * A class for predicting the next word in a sequence using a unigram model.
@@ -141,15 +145,29 @@ public class UnigramWordPredictor implements WordPredictor {
     // TODO: Return a predicted word given the words preceding it
     // Hint: only the last word in context should be looked at
 
-    String nextWord = null;
-
-    String checkedWord = context.getLast();
-
-    if(getNeighborMap().containsKey(checkedWord)){
-      return getNeighborMap().get(checkedWord).
+    // check if context is empty 
+    if (context.isEmpty()){
+      return null;
     }
 
-    return nextWord;
+    // grabbing the checkedWord
+    String checkedWord = context.get(context.size() - 1);
+
+
+
+    if(getNeighborMap().containsKey(checkedWord)){
+
+      List<String> neighbor = getNeighborMap().get(checkedWord);
+
+    if(neighbor != null){
+      Random rd = new Random();
+      int randomIndex = neighbor.size();
+
+      return neighbor.get(randomIndex);
+    }
+    }
+
+    return "I have no idea how we got here!";
   }
   
   /**
