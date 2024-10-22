@@ -6,6 +6,8 @@
 
 // doing this to make things easier
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
+
 import org.junit.jupiter.api.ClassOrderer.Random;
 
 /**
@@ -160,10 +162,18 @@ public class UnigramWordPredictor implements WordPredictor {
       List<String> neighbor = getNeighborMap().get(checkedWord);
 
     if(neighbor != null){
-      Random rd = new Random();
-      int randomIndex = neighbor.size();
+      // got this from googling
 
-      return neighbor.get(randomIndex);
+      // essentially threadlocalrandom is used
+      // to run mutliple threadlocalrandoms to generte
+      // numbes randomly whcih would allow you to protect #s randomly
+
+      // just have to ensure that you put the current method on it to let the class know to make its own random number on this instance similar to this. 
+
+      // nextInt() is there to generate a random number based on nthe size of the neighbor.size()
+      int randomInt = ThreadLocalRandom.current().nextInt(neighbor.size());
+//cant use nextInt() so I gotta use math.rnadom instead
+      return neighbor.get(randomInt);
     }
     }
 
