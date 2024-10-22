@@ -116,18 +116,12 @@ public class UnigramWordPredictor implements WordPredictor {
    * @return the predicted next word, or null if no prediction can be made
    */
   public String predictNextWord(List<String> context) {
-    // TO DO Return a predicted word given the words preceding it
-    // Hint: only the last word in context should be looked at
-
-    // Create RNG
-    // Grab number of values in a key
-    // set the number as max rng value
-    // output the word
+    String lastWord = context.get(context.size()-1);       // get a word at last index
+    List<String> lastWordList = neighborMap.get(lastWord); // grab lastWord key's values and assign em to lastWordList
 
     Random random = new Random();
-    int gen = random.nextInt(context.size())+1;
-    
-    String output = context.get(gen);
+    int gen = random.nextInt(lastWordList.size()); // set lastWordList number of values as RNG limit
+    String output = lastWordList.get(gen); // assign the randomly picked word as output
 
     return output;
   }
