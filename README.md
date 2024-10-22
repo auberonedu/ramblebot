@@ -6,6 +6,8 @@ A project to exercise Java, JUnit, git, GitHub, and code-reading skills. Student
 
 ### Academic Honesty
 
+ACADEMIC HONESTY IS KEY!
+
 THIS IS AN INDIVIDUAL PROJECT. The following is not allowed:
 - You MAY NOT copy any code from an AI.
 - You MAY NOT paste any of the project or your code into an AI.
