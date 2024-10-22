@@ -65,7 +65,7 @@ public class UnigramWordPredictor implements WordPredictor {
 
       // This will update and checks if the word is already a key in neighborMap
       if (!neighborMap.containsKey(word)) {
-        //If word not present in the map, create an new empty ArrayList
+        //If word not present in the map, place it in the list
         neighborMap.put(word, new ArrayList<>());
       }
       // This will store the 'nextWord' after 'word' has entry in the map
@@ -125,7 +125,11 @@ public class UnigramWordPredictor implements WordPredictor {
   public String predictNextWord(List<String> context) {
     // TODO: Return a predicted word given the words preceding it
     // Hint: only the last word in context should be looked at
-    return null;
+
+    // Check if context is empty
+    if (context.isEmpty()) {
+      return null;
+    }
   }
   
   /**
