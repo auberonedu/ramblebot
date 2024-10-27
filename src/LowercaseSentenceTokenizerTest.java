@@ -17,7 +17,7 @@ class LowercaseSentenceTokenizerTest {
         assertEquals(List.of("this", "is", "a", "lowercase", "sentence", "without", "a", "period"), tokens);
     }
 
-    // Wave 2
+    // Wave 2 Complet
     /*
      * Write your test here!
      */
