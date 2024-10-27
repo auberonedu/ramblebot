@@ -52,7 +52,29 @@ public class UnigramWordPredictor implements WordPredictor {
     List<String> trainingWords = tokenizer.tokenize(scanner);
 
     // TODO: Convert the trainingWords into neighborMap here
-  }
+    
+    // Create a new HashMap to store each word and its following words
+    neighborMap = new HashMap<>();
+
+    // Iterate through the training words to build the neighbor map
+    for (int index = 0; index < trainingWords.size() - 1; index++) {
+        String currentWord = trainingWords.get(index);
+        String nextWord = trainingWords.get(index + 1);
+
+        // If currentWord is not in the map, add it with an empty list of followers
+        if (neighborMap.get(currentWord) == null) {
+            List<String> followersList = new ArrayList<>();
+            followersList.add(nextWord);
+            neighborMap.put(currentWord, followersList);
+        } else {
+            // If currentWord is already in the map, simply add the next word to its list
+            List<String> followersList = neighborMap.get(currentWord);
+            followersList.add(nextWord);
+        }
+    }
+}
+
+  
 
   /**
    * Predicts the next word based on the given context.
