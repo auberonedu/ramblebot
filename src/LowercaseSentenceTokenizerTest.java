@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,8 +25,11 @@ class LowercaseSentenceTokenizerTest {
      @Test 
      void testTokenizeWithManySpaces() {
          LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
+         Scanner scanner = new Scanner("this    is      a   sentence      with    many         spaces    between     the     words");
+        List<String> tokens = tokenizer.tokenize(scanner);
 
-     }
+        assertEquals(Arrays.asList("this", "is", "a", "sentence", "with", "many", "spaces", "between", "the", "words"), tokens);
+    }
     
 
     // Wave 3
